@@ -1,0 +1,12 @@
+{% load render_bundle from webpack_loader %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React Webpack Babel App</title>
+</head>
+<body>
+	<div id="myApp"></div>
+  {% render_bundle 'main' %}
+</body>
+</html>

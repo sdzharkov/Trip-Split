@@ -1,0 +1,44 @@
+{
+  "name": "tripslice",
+  "version": "1.0.0",
+  "description": "Trip Slice gas app",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "node-libs-browser": "^1.0.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "webpack-bundle-tracker": "0.0.93"
+  },
+  "devDependencies": {
+    "babel": "*",
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-preset-react": "^6.11.1",
+    "node-libs-browser": "*",
+    "react": "*",
+    "webpack": "*",
+    "webpack-bundle-tracker": "*",
+    "webpack-dev-server": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdzharkov/tripSlice.git"
+  },
+  "keywords": [
+    "gas",
+    "silce"
+  ],
+  "author": "sdzharkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdzharkov/tripSlice/issues"
+  },
+  "homepage": "https://github.com/sdzharkov/tripSlice#readme"
+}
