@@ -1,0 +1,38 @@
+.mdl-layout {
+  background: url('https://download.unsplash.com/1/irish-hands.jpg') center / cover;
+}
+
+.mdl-layout__header {
+  // add background transition
+  transition-property: max-height,box-shadow,background;
+}
+
+.mdl-layout__header.is-casting-shadow {
+  // override initial background when scrolling
+  background: rgb(63,81,181);
+}
+
+.mdl-layout__header,
+.mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+
+.mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background: url('http://www.getmdl.io/assets/demos/welcome_card.jpg') center / cover;
+}
+
+.mdl-card__menu {
+    color: #fff;
+}
+
+.is-focused .mdl-textfield__input {
+    border-color: #fff;
+}
+
+.material-icons {
+  justify-content: flex-end !important;
+}

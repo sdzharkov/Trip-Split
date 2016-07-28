@@ -11,6 +11,7 @@
     "node-libs-browser": "^1.0.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
+    "react-mdl": "^1.6.1",
     "webpack-bundle-tracker": "0.0.93"
   },
   "devDependencies": {
@@ -18,8 +19,10 @@
     "babel-core": "*",
     "babel-loader": "*",
     "babel-preset-react": "^6.11.1",
+    "css-loader": "^0.23.1",
     "node-libs-browser": "*",
     "react": "*",
+    "style-loader": "^0.13.1",
     "webpack": "*",
     "webpack-bundle-tracker": "*",
     "webpack-dev-server": "*"
