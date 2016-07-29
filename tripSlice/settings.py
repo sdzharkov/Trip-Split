@@ -27,17 +27,41 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+SITE_ID=1
 # Application definition
 
 INSTALLED_APPS = [
     'tripapp.apps.TripappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.dropbox',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.evernote',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.linkedin',
+    'allauth.socialaccount.providers.openid',
+    'allauth.socialaccount.providers.persona',
+    'allauth.socialaccount.providers.reddit',
+    'allauth.socialaccount.providers.shopify',
+    'allauth.socialaccount.providers.slack',
+    'allauth.socialaccount.providers.soundcloud',
+    'allauth.socialaccount.providers.stackexchange',
+    'allauth.socialaccount.providers.twitch',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.vimeo',
+    'allauth.socialaccount.providers.weibo',
+    'allauth.socialaccount.providers.xing',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -50,6 +74,11 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
 
 ROOT_URLCONF = 'tripSlice.urls'
 
@@ -121,7 +150,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#Authentication Information
-LOGIN_REDIRECT_URL = '/tripapp/home/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'assets'),
+)
 
-LOGIN_URL='/login/'
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+#Authentication Information
+#LOGIN_REDIRECT_URL = '/tripapp/home/'
+#LOGIN_REDIRECT_URL = '/'
+#LOGIN_URL='/login/'

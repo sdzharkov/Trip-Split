@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
+#from django.contrib.auth import views as auth_views
+from django.views.generic.base import TemplateView
+admin.autodiscover()
+
 urlpatterns = [
     url(r'^tripapp/', include('tripapp.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^login/', auth_views.login, {'template_name':'login.html'},name='login'),
-    url(r'^logout/',auth_views.logout_then_login, name='logout'),
+    #url(r'^login/', auth_views.login, {'template_name':'login.html'},name='login'),
+    #url(r'^logout/',auth_views.logout_then_login, name='logout'),
+    url(r'^accounts/', include('allauth.urls')),
+    url(r'^$', TemplateView.as_view(template_name='index.html')),
+    url(r'^accounts/profile/$', TemplateView.as_view(template_name='profile.html')),
 ]
-
