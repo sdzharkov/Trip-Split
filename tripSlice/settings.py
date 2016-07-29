@@ -31,6 +31,7 @@ SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
+     #'tripapp.apps.TripappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -111,13 +112,13 @@ TEMPLATES = [
 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
+    # 'django.contrib.auth.backends.ModelBackend',
+    #
+    # # `allauth` specific authentication methods, such as login by e-mail
+    # 'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-LOGIN_REDIRECT_URL = '/'
+#LOGIN_REDIRECT_URL = '/'
 
 
 WSGI_APPLICATION = 'tripSlice.wsgi.application'
@@ -179,6 +180,10 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/tripapp/home/'
+
+LOGIN_URL='/login/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
