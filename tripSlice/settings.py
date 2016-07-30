@@ -85,7 +85,7 @@ ROOT_URLCONF = 'tripSlice.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'tripSlice/templates/plain/example'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,6 +97,14 @@ TEMPLATES = [
         },
     },
 ]
+
+# TEMPLATE_DIRS = (
+#     # allauth templates: you could copy this directory into your
+#     # project and tweak it according to your needs
+#     # os.path.join(PROJECT_ROOT, 'templates', 'uniform', 'allauth'),
+#     # example project specific templates
+#     os.path.join(BASE_DIR, 'templates', 'plain', 'example'),
+# )
 
 WSGI_APPLICATION = 'tripSlice.wsgi.application'
 
@@ -162,5 +170,5 @@ STATICFILES_FINDERS = (
 
 #Authentication Information
 #LOGIN_REDIRECT_URL = '/tripapp/home/'
-#LOGIN_REDIRECT_URL = '/'
-#LOGIN_URL='/login/'
+# LOGIN_REDIRECT_URL = 'profile.html'
+# LOGIN_URL='/login/'
