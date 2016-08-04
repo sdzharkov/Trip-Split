@@ -27,41 +27,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SITE_ID=1
+
 # Application definition
 
 INSTALLED_APPS = [
     'tripapp.apps.TripappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.dropbox',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.evernote',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.linkedin',
-    'allauth.socialaccount.providers.openid',
-    'allauth.socialaccount.providers.persona',
-    'allauth.socialaccount.providers.reddit',
-    'allauth.socialaccount.providers.shopify',
-    'allauth.socialaccount.providers.slack',
-    'allauth.socialaccount.providers.soundcloud',
-    'allauth.socialaccount.providers.stackexchange',
-    'allauth.socialaccount.providers.twitch',
-    'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.vimeo',
-    'allauth.socialaccount.providers.weibo',
-    'allauth.socialaccount.providers.xing',
-
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -75,17 +51,12 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
-
 ROOT_URLCONF = 'tripSlice.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'tripSlice/templates/uniform/account'), ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,14 +68,6 @@ TEMPLATES = [
         },
     },
 ]
-
-# TEMPLATE_DIRS = (
-#     # allauth templates: you could copy this directory into your
-#     # project and tweak it according to your needs
-#     # os.path.join(PROJECT_ROOT, 'templates', 'uniform', 'allauth'),
-#     # example project specific templates
-#     os.path.join(BASE_DIR, 'templates', 'plain', 'example'),
-# )
 
 WSGI_APPLICATION = 'tripSlice.wsgi.application'
 
@@ -162,13 +125,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-)
-
 #Authentication Information
-#LOGIN_REDIRECT_URL = '/tripapp/home/'
-# LOGIN_REDIRECT_URL = 'profile.html'
-# LOGIN_URL='/login/'
+LOGIN_REDIRECT_URL = '/tripapp/home/'
+
+LOGIN_URL='/login/'
