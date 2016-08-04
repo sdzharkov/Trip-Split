@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'tripSlice',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -85,7 +85,7 @@ ROOT_URLCONF = 'tripSlice.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'tripSlice/templates/uniform/account'), ],
+        'DIRS': [os.path.join(BASE_DIR, 'tripSlice/templates/uniform/'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -159,7 +159,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 STATICFILES_FINDERS = (
@@ -170,5 +170,5 @@ STATICFILES_FINDERS = (
 
 #Authentication Information
 #LOGIN_REDIRECT_URL = '/tripapp/home/'
-# LOGIN_REDIRECT_URL = 'profile.html'
-# LOGIN_URL='/login/'
+LOGIN_REDIRECT_URL = 'profile.html'
+LOGIN_URL='accounts/login/'
