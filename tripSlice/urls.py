@@ -22,9 +22,9 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^tripapp/', include('tripapp.urls')),
     url(r'^admin/', admin.site.urls),
-    #url(r'^login/', auth_views.login, {'template_name':'login.html'},name='login'),
-    #url(r'^logout/',auth_views.logout_then_login, name='logout'),
-    url(r'^accounts/', include('allauth.urls')),
+    url(r'^login/', auth_views.login, {'template_name':'login.html'},name='login'),
+    url(r'^logout/',auth_views.logout_then_login, name='logout'),
+    #url(r'^accounts/', include('allauth.urls')),
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^accounts/profile/$', TemplateView.as_view(template_name='profile.html')),
 ]
