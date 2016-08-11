@@ -68,13 +68,13 @@
 						 {% endif %}
             <div class="title">LOGIN</div>
             <div class="input">
-               <label for="name">Username</label>
-               <input type="text" name="name" id="name">{{username}}</input>
+               <label for="name">{{ form.username.label_tag }}</label>
+               <input type="text" name="name" id="name">{{form.username}}</input>
                <span class="spin"></span>
             </div>
             <div class="input">
-               <label for="pass">Password</label>
-               <input type="password" name="pass" id="pass">{{password}}</input>
+               <label for="pass">{{ form.password.label_tag }}</label>
+               <input type="password" name="pass" id="pass">{{form.password}}</input>
                <span class="spin"></span>
             </div>
             <div class="button login">
