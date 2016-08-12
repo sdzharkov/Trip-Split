@@ -54,11 +54,11 @@
 	  <main class="mdl-layout__content">
       <div class="materialContainer">
          <div class="box">
-					 {%block content%}
-					 <form method="post" action="{% url 'login' %}"> {% csrf_token %}
+					 <form method="post" action="{% url 'login' %}">
+						 {% csrf_token %}
 						 {% if form.errors %}
-							 <p>Your username and password didn't match. Please try again.</p> {% endif %}
-
+							 <p>Your username and password didn't match. Please try again.</p>
+						 {% endif %}
 						 {% if next %}
 							 {% if user.is_authenticated %}
 								 <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
@@ -69,12 +69,12 @@
             <div class="title">LOGIN</div>
             <div class="input">
                <label for="username"></label>
-               <input type="text" name="username" id="name" placeholder="Username"></input>
+               <input type="text" name="username" id="name" placeholder="Username"/>
                <span class="spin"></span>
             </div>
             <div class="input">
                <label for="password"></label>
-               <input type="password" name="password" id="pass" placeholder="Password"></input>
+               <input type="password" name="password" id="pass" placeholder="Password"/>
                <span class="spin"></span>
             </div>
             <div class="button login">
@@ -84,7 +84,6 @@
             <a href="" class="pass-forgot">Forgot your password?</a>
 					</form>
          </div>
-				 {% endblock %}
          <div class="overbox">
             <div class="material-button alt-2"><span class="shape"></span></div>
             <div class="title">REGISTER</div>
