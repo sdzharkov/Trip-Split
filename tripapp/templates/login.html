@@ -54,11 +54,13 @@
 	  <main class="mdl-layout__content">
       <div class="materialContainer">
          <div class="box">
-					 {%block content%}
 					 <form method="post" action="{% url 'login' %}"> {% csrf_token %}
 						 {% if form.errors %}
 							 <p>Your username and password didn't match. Please try again.</p> {% endif %}
-
+							 {% if user.is_authenticated %}
+							   <p>
+							     You already have an account bitch
+							   </p> {% endif %}
 						 {% if next %}
 							 {% if user.is_authenticated %}
 								 <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
@@ -81,10 +83,10 @@
                <button type="submit" value="login"><span>GO</span> <i class="fa fa-check"></i></button>
 							 <input type="hidden" name="next" value="{{ next }}" />
             </div>
-            <a href="" class="pass-forgot">Forgot your password?</a>
 					</form>
+					<a href="{% url 'password_change' %}" class="pass-forgot">Forgot your password?</a>
+
          </div>
-				 {% endblock %}
          <div class="overbox">
             <div class="material-button alt-2"><span class="shape"></span></div>
             <div class="title">REGISTER</div>
