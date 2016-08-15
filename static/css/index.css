@@ -1,3 +1,20 @@
+@font-face{
+  font-family: madMax;
+  src: url(../fonts/MAXWELL_REGULAR.ttf);
+}
+
+.main-text{
+  display: block;
+  justify-content: center;
+  text-align: left;
+}
+.main-text h1{
+  font-size: 130px;
+  font-family: madMax;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
 .mdl-layout {
   background: url('../img/van.jpg') center / cover;
 }

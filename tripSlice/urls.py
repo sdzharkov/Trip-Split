@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^login/', auth_views.login, {'template_name':'login.html'}, name='login'),
     url(r'^logout/',auth_views.logout_then_login, name='logout'),
     url('^', include('django.contrib.auth.urls')),
-    #url('^change-password/$', auth_views.password_change, {'template_name': 'change-password.html'}),
+    #url('^change-password/$', auth_views.password_change, {'template_name': 'change-password.html'}, name="change-password"),
 
     #url(r'^accounts/', include('allauth.urls')),
     url(r'^$', TemplateView.as_view(template_name='index.html')),

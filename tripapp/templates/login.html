@@ -82,7 +82,9 @@
 							 <input type="hidden" name="next" value="{{ next }}" />
             </div>
 					</form>
-					<a href="{% url 'password_change' %}" class="pass-forgot">Forgot your password?</a>
+					<form method="post" action="{% url 'password_reset' %}">
+						<a href="{% url 'password_reset' %}" class="pass-forgot">Forgot your password?</a>
+					</form>
 
          </div>
          <div class="overbox">

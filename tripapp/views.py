@@ -12,3 +12,5 @@ from django.contrib.auth import views
 #     template_response = views.password_change(request)
 #     # Do something with `template_response`
 #     return template_response
+
+# def my_login(request):
