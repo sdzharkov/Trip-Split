@@ -88,26 +88,29 @@
 
          </div>
          <div class="overbox">
+					 <form method="POST" action="{% url 'RegForm' %}">
+						 {% csrf_token %}
             <div class="material-button alt-2"><span class="shape"></span></div>
             <div class="title">REGISTER</div>
             <div class="input">
-               <label for="regname">Username</label>
-               <input type="text" name="regname" id="regname">
+               <!-- <label for="username">Username</label> -->
+               <input type="text" name="username" id="regname"></input>
                <span class="spin"></span>
             </div>
             <div class="input">
-               <label for="regpass">Password</label>
-               <input type="password" name="regpass" id="regpass">
+               <!-- <label for="password">Password</label> -->
+               <input type="password" name="password" id="regpass"></input>
                <span class="spin"></span>
             </div>
             <div class="input">
-               <label for="reregpass">Repeat Password</label>
-               <input type="password" name="reregpass" id="reregpass">
+               <!-- <label for="check_pass">Repeat Password</label> -->
+               <input type="password" name="check_pass" id="reregpass"></input>
                <span class="spin"></span>
             </div>
             <div class="button">
-               <button><span>NEXT</span></button>
+               <button type="submit"><span>NEXT</span></button>
             </div>
+					</form>
          </div>
       </div>
 	  </main>

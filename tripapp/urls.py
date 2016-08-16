@@ -7,4 +7,5 @@ from . import views
 
 urlpatterns = [
     url(r'^home/',views.home,name='home'),
+    url(r'^register/', views.RegFormView, name='RegForm'),
 ]
