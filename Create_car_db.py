@@ -86,8 +86,6 @@ def printFunc(line, count):
     print(tab*2, "}")
     print(tab,"},")
 
-# def printFunc(line,count):
-#     print(json.dumps({'model': 'tripapp.car', 'pk': count, 'fields'}, sort_keys=True, indent=4))
 
 
 if __name__ == "__main__":
