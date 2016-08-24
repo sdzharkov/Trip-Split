@@ -1,3 +1,4 @@
+import requests
 from django import forms
 from django.contrib.auth.models import User
 class RegForm(forms.Form):
@@ -17,17 +18,13 @@ class RegForm(forms.Form):
 class googleAPI(forms.Form):
     origins = forms.CharField(label='source', max_length=100)
     destinations = forms.CharField(label='dest',max_length=100)
-    currentTime = 10
-    traffic_model = "best_guess"
-    mode = "driving"
-    key = "API_KEY"
+    key = "AIzaSyBpw7LjjI-o9K5QqkSW0tG9iEtpM-K0ooo"
 
     def getGoogleData(source, dest):
-        url = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
+        url = 'https://maps.googleapis.com/maps/api/distancematrix/json'
         params = {'origins': origins, 'destinations': destinations, 'key': key}
-        r = requests.get('https://maps.googleapis.com/maps/api/distancematrix/json', params=params)
+        r = requests.get(url, params=params)
         returnedDist = r.json()
-
-    def __init__(self, arg):
-        super(, self).__init__()
-        self.arg = arg
+        if returnedDist['status'] == 'OK'
+            
+        return returnedDist
