@@ -13,3 +13,21 @@ class RegForm(forms.Form):
         if User.objects.filter(username=self.cleaned_data['username']).exists():
             raise forms.ValidationError('This Username is taken.')
         return cleaned_data
+
+class googleAPI(forms.Form):
+    origins = forms.CharField(label='source', max_length=100)
+    destinations = forms.CharField(label='dest',max_length=100)
+    currentTime = 10
+    traffic_model = "best_guess"
+    mode = "driving"
+    key = "API_KEY"
+
+    def getGoogleData(source, dest):
+        url = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
+        params = {'origins': origins, 'destinations': destinations, 'key': key}
+        r = requests.get('https://maps.googleapis.com/maps/api/distancematrix/json', params=params)
+        returnedDist = r.json()
+
+    def __init__(self, arg):
+        super(, self).__init__()
+        self.arg = arg
