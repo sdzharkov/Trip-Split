@@ -1,6 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Trip Slice</title>
@@ -10,22 +11,23 @@
 	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
 	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 </head>
+
 <body>
 	<div id="myApp"></div>
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-	  <header class="mdl-layout__header mdl-layout__header--transparent">
-	    <div class="mdl-layout__header-row">
-	      <!-- Title -->
-	      <span class="mdl-layout-title">Trip Split</span>
-	      <!-- Add spacer, to align navigation to the right -->
-	      <div class="mdl-layout-spacer"></div>
-	      <!-- Search -->
-	      <nav class="mdl-navigation">
-	        <a class="mdl-navigation__link" href="#">Quick Trip</a>
-	        <a class="mdl-navigation__link" href="#">My Account</a>
-	        <a class="mdl-navigation__link" href="#">About Us</a>
-	      </nav>
-	      <!-- <form action="">
+		<header class="mdl-layout__header mdl-layout__header--transparent">
+			<div class="mdl-layout__header-row">
+				<!-- Title -->
+				<span class="mdl-layout-title">Trip Split</span>
+				<!-- Add spacer, to align navigation to the right -->
+				<div class="mdl-layout-spacer"></div>
+				<!-- Search -->
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" href="#">Quick Trip</a>
+					<a class="mdl-navigation__link" href="#">My Account</a>
+					<a class="mdl-navigation__link" href="#">About Us</a>
+				</nav>
+				<!-- <form action="">
 	      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
 	        <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
 	          <i class="material-icons">search</i>
@@ -37,23 +39,38 @@
 	      </div>
 	      </form> -->
 
-	    </div>
-	  </header>
-	  <div class="mdl-layout__drawer">
-	    <span class="mdl-layout-title">Title</span>
-	    <nav class="mdl-navigation">
-	      <a class="mdl-navigation__link" href="">Quick Trip</a>
-	      <a class="mdl-navigation__link" href="">My Account</a>
-	      <a class="mdl-navigation__link" href="">About us</a>
-	    </nav>
-	  </div>
+			</div>
+		</header>
+		<div class="mdl-layout__drawer">
+			<span class="mdl-layout-title">Title</span>
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="">Quick Trip</a>
+				<a class="mdl-navigation__link" href="">My Account</a>
+				<a class="mdl-navigation__link" href="">About us</a>
+			</nav>
+		</div>
 
-	  <main class="mdl-layout__content">
-	    <div class="mdl-grid" id="mainGrid">
-        <h1> HOME PAGE </h1>
-        <a href='{% url 'logout' %}'>Sign Out</a>
-	    </div>
-	  </main>
+		<main class="mdl-layout__content">
+			<div class="mdl-grid" id="mainGrid">
+				<!-- <div class="loginInfo"> -->
+					<h1> HOME PAGE </h1>
+					<!-- <a href='{% url ' logout ' %}'>Sign Out</a> -->
+				<!-- </div> -->
+				<!-- <div class="google"> -->
+					<!-- <form method="GET">
+						Question:
+						<input type="text" name="source">
+						<br/> Name:
+						<input type="text" name="dest">
+						<br/>
+						<input type="submit" value="Submit" />
+					</form> -->
+					<br/>
+					<br/>
+				</div>
+			</div>
+		</main>
 	</div>
 </body>
+
 </html>

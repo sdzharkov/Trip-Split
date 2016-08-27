@@ -25,13 +25,12 @@ def RegFormView(request):
 
     return render(request, 'login.html', {'RForm' : form})
 
-def mapsView(request):
-    if request.method == 'POST':
-        form = googleAPI(request.POST)
-        if form.is_valid():
-            
-            return HttpResponseRedirect('/tripapp/home')
-    else:
-        form = googleAPI()
-
-    return render(request, 'login.html', {'RForm' : form})
+# def mapsView(request):
+#     if request.method == 'POST':
+#         form = googleAPI(request.POST)
+#     #    if form.is_valid():
+#             #return HttpResponseRedirect('/tripapp/home')
+#     else:
+#         form = googleAPI()
+#
+#     return render(request, 'login.html', {'googleDistance' : googleDistance})
