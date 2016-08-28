@@ -52,6 +52,13 @@
 	    <div class="mdl-grid" id="mainGrid">
         <h1> HOME PAGE </h1>
         <a href='{% url 'logout' %}'>Sign Out</a>
+				<form method="POST" action="{% url 'home' %}">
+					{% csrf_token %}
+					<input name='keywords' type='text' placeholder="Search Here"></input>
+				</form>
+				{% for result in results %}
+					{{ result }}
+				{% endfor %}
 	    </div>
 	  </main>
 	</div>

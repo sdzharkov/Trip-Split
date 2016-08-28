@@ -3,7 +3,7 @@ __pycache__
 db.sqlite3
 .DS_Store
 *~
-/myats/migrations*
+/tripapp/migrations*
 /bin/
 /include/
 /lib/

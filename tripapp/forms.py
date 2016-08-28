@@ -13,3 +13,6 @@ class RegForm(forms.Form):
         if User.objects.filter(username=self.cleaned_data['username']).exists():
             raise forms.ValidationError('This Username is taken.')
         return cleaned_data
+
+class SearchCarForm(forms.Form):
+    keywords = forms.CharField(max_length=250)
