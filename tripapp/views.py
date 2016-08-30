@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from .forms import RegForm, googleForm
+import requests
+
 # Create your views here.
 
 
@@ -36,11 +38,7 @@ def mapsView(request):
         if form.is_valid():
             source = form.cleaned_data['source']
             dest = form.cleaned_data['dest']
-            data = {
-                'source': source,
-                'dest': dest,
-                #'miles': ,
-            }
+            data = getGoogleData(source, dest)
             return JsonResponse(data)
         else:
             return HttpResponseRedirect('fuck')
@@ -48,3 +46,15 @@ def mapsView(request):
         form = googleForm()
 
     return render(request, 'home.html', {'form': form})
+
+
+def getGoogleData(source, dest):
+    key = "AIzaSyBpw7LjjI-o9K5QqkSW0tG9iEtpM-K0ooo"
+    url = 'https://maps.googleapis.com/maps/api/distancematrix/json'
+    params = {'origins': source, 'destinations': dest, 'key': key}
+    r = requests.get(url, params=params)
+    returnedDist = r.json()
+    if returnedDist['status'] == 'OK':
+        return returnedDist
+    else:
+        return error
