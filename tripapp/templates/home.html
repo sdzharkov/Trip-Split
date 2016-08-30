@@ -52,25 +52,26 @@
 
 		<main class="mdl-layout__content">
 			<div class="mdl-grid" id="mainGrid">
-				<!-- <div class="loginInfo"> -->
+				<div class="loginInfo">
 					<h1> HOME PAGE </h1>
-					<!-- <a href='{% url ' logout ' %}'>Sign Out</a> -->
-				<!-- </div> -->
-				<!-- <div class="google"> -->
-					<!-- <form method="GET">
-						Question:
-						<input type="text" name="source">
-						<br/> Name:
-						<input type="text" name="dest">
-						<br/>
-						<input type="submit" value="Submit" />
-					</form> -->
+					<a href='{% url 'logout' %}'>Sign Out</a>
+				</div>
+				<div class="google">
+					<form action="{% url 'googleForm' %}" method="post">
+						{% csrf_token %}
+						<label for="source">Source: </label>
+						<input id="source" type="text" name="source">
+						<label for="dest">Dest: </label>
+						<input id="dest" type="text" name="dest">
+						<input type="submit" value="OK">
+					</form>
 					<br/>
 					<br/>
 				</div>
 			</div>
 		</main>
 	</div>
+
 </body>
 
 </html>

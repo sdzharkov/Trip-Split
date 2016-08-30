@@ -15,17 +15,20 @@ class RegForm(forms.Form):
             raise forms.ValidationError('This Username is taken.')
         return cleaned_data
 
-# class googleAPI(forms.Form):
-#     origins = forms.CharField(label='source', max_length=100)
-#     destinations = forms.CharField(label='dest',max_length=100)
-#     key = "AIzaSyBpw7LjjI-o9K5QqkSW0tG9iEtpM-K0ooo"
-#
-#     def getGoogleData(source, dest):
-#         url = 'https://maps.googleapis.com/maps/api/distancematrix/json'
-#         params = {'origins': origins, 'destinations': destinations, 'key': key}
-#         r = requests.get(url, params=params)
-#         returnedDist = r.json()
-#     #    if returnedDist['status'] == 'OK'
-#         #    return returnedDist
-#         # else
-#         #     return error
+class googleForm(forms.Form):
+    #origins = forms.CharField(label='source', max_length=100)
+    source = forms.CharField(label='source', max_length=100)
+    dest = forms.CharField(label='dest', max_length=100)
+
+    #destinations = forms.CharField(label='dest',max_length=100)
+    #key = "AIzaSyBpw7LjjI-o9K5QqkSW0tG9iEtpM-K0ooo"
+
+    # def getGoogleData(source, dest):
+    #     url = 'https://maps.googleapis.com/maps/api/distancematrix/json'
+    #     params = {'origins': origins, 'destinations': destinations, 'key': key}
+    #     r = requests.get(url, params=params)
+    #     returnedDist = r.json()
+    #     if returnedDist['status'] == 'OK':
+    #         return returnedDist
+    #     else:
+    #         return error
