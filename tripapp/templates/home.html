@@ -57,14 +57,23 @@
 					<a href='{% url 'logout' %}'>Sign Out</a>
 				</div>
 				<div class="google">
+					{% if form.errors %}
+						<p>Error</p>
+					{% endif %}
+					{% if next %}
+						<p>{{ form }}</p>
+					{% else %}
+						<p>{{data}}</p>
+					{% endif %}
 					<form action="{% url 'googleForm' %}" method="post">
 						{% csrf_token %}
 						<label for="source">Source: </label>
 						<input id="source" type="text" name="source">
 						<label for="dest">Dest: </label>
 						<input id="dest" type="text" name="dest">
-						<input type="submit" value="OK">
+						<input type="submit" value="{{ next }}">
 					</form>
+
 					<br/>
 					<br/>
 				</div>

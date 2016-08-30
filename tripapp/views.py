@@ -39,9 +39,12 @@ def mapsView(request):
             source = form.cleaned_data['source']
             dest = form.cleaned_data['dest']
             data = getGoogleData(source, dest)
-            return JsonResponse(data)
+            print(data)
+            #return JsonResponse(data)
+            return render(request, 'home.html', {'data': data})
+
         else:
-            return HttpResponseRedirect('fuck')
+            return HttpResponseRedirect('Error')
     else:
         form = googleForm()
 
