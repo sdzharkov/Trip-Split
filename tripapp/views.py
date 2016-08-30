@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
-from django.http import JsonResponse
+#from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from .forms import RegForm, googleForm
 import requests
@@ -39,9 +39,13 @@ def mapsView(request):
             source = form.cleaned_data['source']
             dest = form.cleaned_data['dest']
             data = getGoogleData(source, dest)
-            print(data)
+            durationValue = data['rows'][0]['elements'][0]['duration']['value']
+            durationText = data['rows'][0]['elements'][0]['duration']['text']
+            distanceValue = data['rows'][0]['elements'][0]['distance']['value']
+            distanceText = data['rows'][0]['elements'][0]['distance']['text']
+            print(durationValue, durationText, distanceValue, distanceText)
             #return JsonResponse(data)
-            return render(request, 'home.html', {'data': data})
+            return render(request, 'home.html', {'durationValue': durationValue, 'durationText': durationText, 'distanceValue': distanceValue, 'distanceText': distanceText })
 
         else:
             return HttpResponseRedirect('Error')

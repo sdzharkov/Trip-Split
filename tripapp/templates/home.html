@@ -63,7 +63,10 @@
 					{% if next %}
 						<p>{{ form }}</p>
 					{% else %}
-						<p>{{data}}</p>
+						<p>{{ durationValue }}</p>
+						<p>
+							{{ durationText }}
+						</p>
 					{% endif %}
 					<form action="{% url 'googleForm' %}" method="post">
 						{% csrf_token %}
