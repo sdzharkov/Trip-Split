@@ -16,3 +16,7 @@ class RegForm(forms.Form):
 
 class SearchCarForm(forms.Form):
     keywords = forms.CharField(max_length=250)
+
+class googleForm(forms.Form):
+    source = forms.CharField(label='source', max_length=100)
+    dest = forms.CharField(label='dest', max_length=100)

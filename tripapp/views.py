@@ -5,7 +5,9 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from .forms import *
 from .models import *
-# Create your views here.
+import requests
+
+
 @login_required
 def home(request):
     if request.method == 'POST':
@@ -18,6 +20,7 @@ def home(request):
         search_form = SearchCarForm()
     results = Car.objects.none()
     return render(request, 'home.html', {'search_form':search_form, 'results':results})
+
 
 
 def RegFormView(request):
@@ -33,4 +36,40 @@ def RegFormView(request):
             return HttpResponseRedirect('/tripapp/home')
     else:
         form = RegForm()
-    return render(request, 'login.html', {'RForm' : form})
+
+    return render(request, 'login.html', {'RForm': form})
+
+
+def mapsView(request):
+    if request.method == 'POST':
+        form = googleForm(request.POST)
+        if form.is_valid():
+            source = form.cleaned_data['source']
+            dest = form.cleaned_data['dest']
+            data = getGoogleData(source, dest)
+            durationValue = data['rows'][0]['elements'][0]['duration']['value']
+            durationText = data['rows'][0]['elements'][0]['duration']['text']
+            distanceValue = data['rows'][0]['elements'][0]['distance']['value']
+            distanceText = data['rows'][0]['elements'][0]['distance']['text']
+            print(durationValue, durationText, distanceValue, distanceText)
+            #return JsonResponse(data)
+            return render(request, 'home.html', {'durationValue': durationValue, 'durationText': durationText, 'distanceValue': distanceValue, 'distanceText': distanceText })
+
+        else:
+            return HttpResponseRedirect('Error')
+    else:
+        form = googleForm()
+
+    return render(request, 'home.html', {'form': form})
+
+
+def getGoogleData(source, dest):
+    key = "AIzaSyBpw7LjjI-o9K5QqkSW0tG9iEtpM-K0ooo"
+    url = 'https://maps.googleapis.com/maps/api/distancematrix/json'
+    params = {'origins': source, 'destinations': dest, 'key': key}
+    r = requests.get(url, params=params)
+    returnedDist = r.json()
+    if returnedDist['status'] == 'OK':
+        return returnedDist
+    else:
+        return error
