@@ -47,13 +47,15 @@ def mapsView(request):
             source = form.cleaned_data['source']
             dest = form.cleaned_data['dest']
             data = getGoogleData(source, dest)
-            durationValue = data['rows'][0]['elements'][0]['duration']['value']
-            durationText = data['rows'][0]['elements'][0]['duration']['text']
-            distanceValue = data['rows'][0]['elements'][0]['distance']['value']
-            distanceText = data['rows'][0]['elements'][0]['distance']['text']
-            print(durationValue, durationText, distanceValue, distanceText)
+            print(data['rows'][0]['elements'][0]['status'])
+            if data['rows'][0]['elements'][0]['status'] == 'OK':
+                durationValue = data['rows'][0]['elements'][0]['duration']['value']
+                durationText = data['rows'][0]['elements'][0]['duration']['text']
+                distanceValue = data['rows'][0]['elements'][0]['distance']['value']
+                distanceText = data['rows'][0]['elements'][0]['distance']['text']
+                print(durationValue, durationText, distanceValue, distanceText)
             #return JsonResponse(data)
-            return render(request, 'home.html', {'durationValue': durationValue, 'durationText': durationText, 'distanceValue': distanceValue, 'distanceText': distanceText })
+                return render(request, 'home.html', {'durationValue': durationValue, 'durationText': durationText, 'distanceValue': distanceValue, 'distanceText': distanceText })
 
         else:
             return HttpResponseRedirect('Error')
