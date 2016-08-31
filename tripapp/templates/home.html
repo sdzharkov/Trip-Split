@@ -67,6 +67,12 @@
 						<p>
 							{{ durationText }}
 						</p>
+						<p>
+							{{ distanceText }}
+						</p>
+						<p>
+							{{ distanceValue }}
+						</p>
 					{% endif %}
 					<form action="{% url 'googleForm' %}" method="post">
 						{% csrf_token %}

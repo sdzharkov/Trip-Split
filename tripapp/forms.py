@@ -14,7 +14,9 @@ class RegForm(forms.Form):
             raise forms.ValidationError('This Username is taken.')
         return cleaned_data
 
+
+
+
 class googleForm(forms.Form):
-    #origins = forms.CharField(label='source', max_length=100)
     source = forms.CharField(label='source', max_length=100)
     dest = forms.CharField(label='dest', max_length=100)
