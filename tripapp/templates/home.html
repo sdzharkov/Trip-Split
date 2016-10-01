@@ -49,60 +49,68 @@
 				<a class="mdl-navigation__link" href="">About us</a>
 			</nav>
 		</div>
-
+		<!-- <div class="loginInfo">
+			<h1> HOME PAGE </h1>
+			<a href='{% url 'logout' %}'>Sign Out</a>
+		</div>
+		<div class="google">
+			{% if form.errors %}
+			<p>Error</p>
+			{% endif %} {% if next %}
+			<p>{{ form }}</p>
+			{% else %}
+			<p>{{ durationValue }}</p>
+			<p>
+				{{ durationText }}
+			</p>
+			<p>
+				{{ distanceText }}
+			</p>
+			<p>
+				{{ distanceValue }}
+			</p>
+			{% endif %}
+			<form action="{% url 'googleForm' %}" method="post">
+				{% csrf_token %}
+				<label for="source">Source: </label>
+				<input id="source" type="text" name="source">
+				<label for="dest">Dest: </label>
+				<input id="dest" type="text" name="dest">
+				<input type="submit" value="{{ next }}">
+			</form>
+		</div>
+		<div class="andrewSearch">
+			<form method="POST" action="{% url 'home' %}">
+				{% csrf_token %}
+				<input name='keywords' type='text' placeholder="Search Here"></input>
+			</form>
+			{% for result in results %} {{ result }} {% endfor %}
+		</div> -->
 		<main class="mdl-layout__content">
 			<div class="mdl-grid" id="mainGrid">
 				<div class="mdl-layout-spacer"></div>
 				<div id="myGrid" class="mdl-cell mdl-cell--6-col-desktop mdl-cell--6-col-tablet mdl-cell--11-col-phone">
-					<ul class="flex-container">
-					  <li class="flex-item">1</li>
-					  <li class="flex-item">2</li>
-					</ul>
-					<ul class="flex-container">
-					  <li class="flex-item">1</li>
-					  <li class="flex-item">2</li>
-					</ul>
+					<div class="flex-container">
+					  <div class="flex-item">
+							<img src="{% static 'img/car.svg' %}" class="svgCar"/>
+							<p>Add Car</p>
+						</div>
+					  <div class="flex-item">
+							<img src="{% static 'img/map.svg' %}" class="svgCar"/>
+							<p>New Trip</p>
+						</div>
+					</div>
+					<div class="flex-container">
+					  <div class="flex-item">1</div>
+					  <div class="flex-item">2</div>
+					</div>
+					<div class="flex-container">
+						<div class="flex-item">1</div>
+						<div class="flex-item">2</div>
+					</div>
 				</div>
 				<div class="mdl-layout-spacer"></div>
 			</div>
-
-				<div class="loginInfo">
-					<h1> HOME PAGE </h1>
-					<a href='{% url 'logout' %}'>Sign Out</a>
-				</div>
-				<div class="google">
-					{% if form.errors %}
-					<p>Error</p>
-					{% endif %} {% if next %}
-					<p>{{ form }}</p>
-					{% else %}
-					<p>{{ durationValue }}</p>
-					<p>
-						{{ durationText }}
-					</p>
-					<p>
-						{{ distanceText }}
-					</p>
-					<p>
-						{{ distanceValue }}
-					</p>
-					{% endif %}
-					<form action="{% url 'googleForm' %}" method="post">
-						{% csrf_token %}
-						<label for="source">Source: </label>
-						<input id="source" type="text" name="source">
-						<label for="dest">Dest: </label>
-						<input id="dest" type="text" name="dest">
-						<input type="submit" value="{{ next }}">
-					</form>
-				</div>
-				<div class="andrewSearch">
-					<form method="POST" action="{% url 'home' %}">
-						{% csrf_token %}
-						<input name='keywords' type='text' placeholder="Search Here"></input>
-					</form>
-					{% for result in results %} {{ result }} {% endfor %}
-				</div>
 		</main>
 	</div>
 </body>
