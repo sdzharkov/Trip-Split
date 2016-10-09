@@ -84,9 +84,9 @@
 					</form>
 				</div>
 				<div class="andrewSearch">
-					<form method="POST" action="{% url 'home' %}">
+					<form method="POST" action="{% url 'SearchCarForm' %}">
 						{% csrf_token %}
-						<input name='keywords' type='text' placeholder="Search Here"></input>
+						<input name='carSearch' id ='carSearch' type='text' placeholder="Search"></input>
 					</form>
 					{% for result in results %}
 						{{ result }}

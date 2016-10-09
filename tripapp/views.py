@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
+from django.contrib.postgres.search import SearchVector
 from .forms import *
 from .models import *
 import requests
@@ -44,6 +45,7 @@ def mapsView(request):
     if request.method == 'POST':
         form = googleForm(request.POST)
         if form.is_valid():
+            print(form)
             source = form.cleaned_data['source']
             dest = form.cleaned_data['dest']
             data = getGoogleData(source, dest)
@@ -75,3 +77,21 @@ def getGoogleData(source, dest):
         return returnedDist
     else:
         return error
+
+def carSearchView(request):
+    if request.method == 'POST':
+        form = SearchCarForm(request.POST)
+        if form.is_valid():
+            x = form.cleaned_data['carSearch']
+            print(x)
+            results = Car.objects.annotate(search=SearchVector('car_year', 'car_model', 'car_make'),).filter(search = x)
+            print(results)
+            return render(request, 'home.html', {'results': results})
+
+        else:
+            return HttpResponseRedirect('Error')
+    else:
+        form = SearchCarForm()
+
+    return render(request, 'home.html', {'form': form})
+

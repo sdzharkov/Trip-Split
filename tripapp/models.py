@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Car(models.Model):
     car_make = models.CharField(max_length=150)
     car_model = models.CharField(max_length=150)
-    car_year = models.PositiveSmallIntegerField()
+    car_year = models.CharField(max_length=5)
     car_highway_mpg = models.PositiveSmallIntegerField()
     car_city_mpg = models.PositiveSmallIntegerField()
     car_comb_mpg = models.PositiveSmallIntegerField()

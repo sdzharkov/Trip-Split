@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^home/',views.home,name='home'),
     url(r'^register/', views.RegFormView, name='RegForm'),
     url(r'^google/', views.mapsView, name='googleForm'),
+    url(r'^searchingcar/',views.carSearchView, name='SearchCarForm')
     #url(r'^google/', TemplateView.as_view(template_name="name.html"), name='googleForm'),
 
 ]

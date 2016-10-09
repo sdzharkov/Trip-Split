@@ -82,7 +82,10 @@ def printFunc(line, count):
     print(tab*2, tab, "\"car_cylinder\": ",line[5],",")
     print(tab*2, tab, "\"car_drive\": ","\"",line[6],"\",")
     print(tab*2, tab, "\"fuel\": ","\"",line[7],"\",")
-    print(tab*2, tab, "\"car_year\": ",line[8])
+    #print(tab*2, tab, "\"car_year\": ",line[8])
+    print(tab*2, tab, "\"car_year\": ","\"",line[8],"\"")
+    #print(tab*2, tab, "\"car_make\": ","\"",line[0],"\",")
+
     print(tab*2, "}")
     print(tab,"},")
 
