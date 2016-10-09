@@ -1,0 +1,9 @@
+autopep8==1.2.4
+defusedxml==0.4.1
+Django==1.10
+django-allauth==0.26.1
+oauthlib==1.1.2
+pep8==1.7.0
+python3-openid==3.0.10
+requests==2.10.0
+requests-oauthlib==0.6.2

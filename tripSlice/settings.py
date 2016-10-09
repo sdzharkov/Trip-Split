@@ -77,7 +77,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'tripslice_db',
-        'USER': 'andrew',
+        'USER': 'StephanLapdance',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
