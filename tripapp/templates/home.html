@@ -54,6 +54,44 @@
 
 		<main class="mdl-layout__content">
 			<div class="mdl-grid" id="mainGrid">
+				<div class="mdl-layout-spacer"></div>
+				<div id="myGrid" class="mdl-cell">
+					<div class="google">
+						{% if form.errors %}
+						<p>Error</p>
+						{% endif %} {% if next %}
+						<p>{{ form }}</p>
+						{% else %}
+						<p>{{ durationValue }}</p>
+						<p>
+							{{ durationText }}
+						</p>
+						<p>
+							{{ distanceText }}
+						</p>
+						<p>
+							{{ distanceValue }}
+						</p>
+						{% endif %}
+						<form action="{% url 'googleForm' %}" method="post">
+							{% csrf_token %}
+							<label for="source">Source: </label>
+							<input id="source" type="text" name="source">
+							<label for="dest">Dest: </label>
+							<input id="dest" type="text" name="dest">
+							<input type="submit" value="{{ next }}">
+						</form>
+					</div>
+					<div class="andrewSearch">
+						<form method="POST" action="{% url 'SearchCarForm' %}">
+							{% csrf_token %}
+							<input name='carSearch' id ='carSearch' type='text' placeholder="Search"></input>
+						</form>
+						{% for result in results %} {{ result }} {% endfor %}
+					</div>
+				<div class="mdl-layout-spacer"></div>
+			</div>
+
 				<div class="loginInfo">
 			      <form action="">
 			      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
@@ -67,43 +105,7 @@
 			      </div>
 			      </form>
 				</div>
-				<div class="google">
-					{% if form.errors %}
-						<p>Error</p>
-					{% endif %}
-					{% if next %}
-						<p>{{ form }}</p>
-					{% else %}
-						<p>{{ durationValue }}</p>
-						<p>
-							{{ durationText }}
-						</p>
-						<p>
-							{{ distanceText }}
-						</p>
-						<p>
-							{{ distanceValue }}
-						</p>
-					{% endif %}
-					<form action="{% url 'googleForm' %}" method="post">
-						{% csrf_token %}
-						<label for="source">Source: </label>
-						<input id="source" type="text" name="source">
-						<label for="dest">Dest: </label>
-						<input id="dest" type="text" name="dest">
-						<input type="submit" value="{{ next }}">
-					</form>
-				</div>
-				<div class="andrewSearch">
-					<form method="POST" action="{% url 'SearchCarForm' %}">
-						{% csrf_token %}
-						<input name='carSearch' id ='carSearch' type='text' placeholder="Search"></input>
-					</form>
-					{% for result in results %}
-						{{ result }}
-					{% endfor %}
-				</div>
-			</div>
+
 		</main>
 	</div>
 </body>
