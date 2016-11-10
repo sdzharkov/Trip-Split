@@ -49,7 +49,7 @@
 				<a class="mdl-navigation__link" href="">About us</a>
 			</nav>
 		</div>
-		<!-- <div class="loginInfo">
+		<div class="loginInfo">
 			<h1> HOME PAGE </h1>
 			<a href='{% url 'logout' %}'>Sign Out</a>
 		</div>
@@ -80,12 +80,14 @@
 			</form>
 		</div>
 		<div class="andrewSearch">
-			<form method="POST" action="{% url 'home' %}">
+			<form method="POST" action="{% url 'SearchCarForm' %}">
 				{% csrf_token %}
-				<input name='keywords' type='text' placeholder="Search Here"></input>
+				<input name='carSearch' id ='carSearch' type='text' placeholder="Search"></input>
 			</form>
-			{% for result in results %} {{ result }} {% endfor %}
-		</div> -->
+			{% for result in results %}
+				{{ result }}
+			{% endfor %}
+		</div>
 		<main class="mdl-layout__content">
 			<div class="mdl-grid" id="mainGrid">
 				<div class="mdl-layout-spacer"></div>

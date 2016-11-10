@@ -15,9 +15,7 @@ class RegForm(forms.Form):
         return cleaned_data
 
 class SearchCarForm(forms.Form):
-    year = forms.IntegerField()
-    make = forms.CharField()
-    model = forms.CharField()
+    carSearch = forms.CharField(label='searchCar', max_length=200)
 
 class googleForm(forms.Form):
     source = forms.CharField(label='source', max_length=100)
