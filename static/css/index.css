@@ -1,9 +1,23 @@
+
 @font-face{
   font-family: madMax;
   src: url(../fonts/MAXWELL_REGULAR.ttf);
 }
 
-/*Main Grid ////////////////////////////////////////*/
+@font-face{
+  font-family: Bernier;
+  src: url(../fonts/BERNIERShade-Regular.otf);
+}
+
+@font-face{
+  font-family: Bernier-reg;
+  src: url(../fonts/BERNIERRegular-Regular.otf);
+}
+
+@font-face{
+  font-family: Bukhari;
+  src: url(../fonts/BukhariScript-Regular.otf);
+}
 
 .svgCar{
   width: 150px;
@@ -14,7 +28,7 @@
 .flex-container {
   padding: 0;
   margin: 0;
-  /*l#ist-style: none;*/
+  list-style: none;
 
   display: -webkit-box;
   display: -moz-box;
@@ -31,6 +45,9 @@
   width: 200px;
   height: 200px;
   margin: 5px;
+  justify-content: space-around;
+}
+
 
   line-height: 150px;
   color: white;
@@ -52,25 +69,67 @@
 }
 /*///////////////////////////////////Main Grid*/
 
+
 .main-text{
   display: block;
   justify-content: center;
   text-align: left;
 }
-.main-text h1{
+
+
+
+#centerText h2{
+  font-family: "Bukhari";
+  font-size: 50px;
+}
+
+#centerText h1{
+  font-family: "Bernier";
   font-size: 130px;
-  font-family: madMax;
-  font-weight: bold;
-  letter-spacing: 1px;
+}
+
+#centerText {
+/*  background-color: #E5E3D7;
+*/  text-align: center;
+
+/*  opacity: .5;
+  filter: blur(5px);*/
+}
+
+#mainGrid{
+  font-family: "Bernier";
+}
+
+body{
+  background-color: #E5E3D7;
+}
+
+.material-icons{
+  color: black;
+
 }
 
 .mdl-layout {
   background: url('../img/van.jpg') center / cover;
+  background-size: ;
+  background-color: #E5E3D7;
+}
+
+.mdl-layout__header-row .mdl-navigation__link{
+  font-size: 18px;
+  color: black;
 }
 
 .mdl-layout__header {
-  // add background transition
   transition-property: max-height,box-shadow,background;
+  font-family: "Bernier-reg";
+  font-size:25px;
+}
+
+.mdl-layout-title{
+  font-family: "Bernier-reg";
+  font-size: 30px;
+  color:black;
 }
 
 .mdl-layout__header.is-casting-shadow {
@@ -84,6 +143,9 @@
      your background is light. */
   color: white;
 }
+
+
+/*//////////////         DEMO CARD CSS         //////////////////////////////////////*/
 
 .mdl-card__title {
     color: #fff;
@@ -104,6 +166,7 @@
 }
 
 
+<<<<<<< HEAD
 
 
 
@@ -111,6 +174,8 @@
 
 
 
+=======
+>>>>>>> master
 .demo-card-event.mdl-card {
   width: 256px;
   height: 256px;

@@ -49,6 +49,7 @@ def mapsView(request):
     if request.method == 'POST':
         form = googleForm(request.POST)
         if form.is_valid():
+            print(form)
             source = form.cleaned_data['source']
             dest = form.cleaned_data['dest']
             data = getGoogleData(source, dest)
@@ -81,7 +82,10 @@ def getGoogleData(source, dest):
     else:
         return error
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 def carSearchView(request):
     if request.method == 'POST':
         form = SearchCarForm(request.POST)
@@ -99,6 +103,7 @@ def carSearchView(request):
 
     return render(request, 'home.html', {'form': form})
 
+<<<<<<< HEAD
 
 #Django Rest Stuff 
 
@@ -143,3 +148,5 @@ class carsDetail(APIView):
         cars = self.get_object(pk)
         cars.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+=======
+>>>>>>> master
