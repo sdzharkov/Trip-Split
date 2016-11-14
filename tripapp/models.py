@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Car(models.Model):
+    id = models.AutoField(primary_key=True)
     car_make = models.CharField(max_length=150)
     car_model = models.CharField(max_length=150)
     car_year = models.CharField(max_length=5)

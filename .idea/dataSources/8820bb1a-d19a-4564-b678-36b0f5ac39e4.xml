@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Django default">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
+    <database id="1" name="tripslice_db">
+      <object-id>16386</object-id>
+      <visible>1</visible>
+    </database>
+    <database id="2" name="postgres">
+      <object-id>12669</object-id>
+    </database>
+    <database id="3" name="StephanLapdance">
+      <object-id>16385</object-id>
+    </database>
+    <schema id="4" parent="1" name="public">
+      <object-id>2200</object-id>
+      <visible>1</visible>
+    </schema>
+    <schema id="5" parent="1" name="pg_catalog">
+      <object-id>11</object-id>
+    </schema>
+    <schema id="6" parent="1" name="pg_toast">
+      <object-id>99</object-id>
+    </schema>
+    <schema id="7" parent="1" name="pg_temp_1">
+      <object-id>11848</object-id>
+    </schema>
+    <schema id="8" parent="1" name="pg_toast_temp_1">
+      <object-id>11849</object-id>
+    </schema>
+    <schema id="9" parent="1" name="information_schema">
+      <object-id>12381</object-id>
+    </schema>
+  </database-model>
+</dataSource>

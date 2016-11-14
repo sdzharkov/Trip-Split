@@ -29,6 +29,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'tripapp.apps.TripappConfig',
+    'dal',
+    'dal_select2',
+    # 'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE_CLASSES = [

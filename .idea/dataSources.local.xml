@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Postgres db" uuid="c3131329-78d7-4fbf-9652-f3712265eab5">
+      <database-info product="PostgreSQL" version="9.6.0" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <user-name>StephanLapdance</user-name>
+      <introspection-scope>tripslice_db:pg_catalog,public,stephanlapdance</introspection-scope>
+      <resolve-scope>tripslice_db:public,stephanlapdance</resolve-scope>
+    </data-source>
+    <data-source name="Django default" uuid="8820bb1a-d19a-4564-b678-36b0f5ac39e4">
+      <database-info product="PostgreSQL" version="9.6.0" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <user-name>StephanLapdance</user-name>
+      <introspection-scope>tripslice_db:public,pg_catalog,stephanlapdance</introspection-scope>
+      <resolve-scope>tripslice_db:public,stephanlapdance</resolve-scope>
+    </data-source>
+  </component>
+</project>
