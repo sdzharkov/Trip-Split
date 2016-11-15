@@ -35,7 +35,6 @@ def home(request):
     return render(request, 'home.html', {'search_form':search_form, 'results':results})
 
 
-
 def RegFormView(request):
     if request.method == 'POST':
         form = RegForm(request.POST)

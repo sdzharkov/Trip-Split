@@ -10,8 +10,7 @@ urlpatterns = [
     url(r'^register/', views.RegFormView, name='RegForm'),
     url(r'^google/', views.mapsView, name='googleForm'),
     url(r'^searchingcar/',carSearchView.as_view(), name='SearchCarForm'),
-
-    #url(r'^google/', TemplateView.as_view(template_name="name.html"), name='googleForm'),
+    url(r'^newsplit/', TemplateView.as_view(template_name="newTrip.html")),
     # url(r'^carsApi/$', views.carsList.as_view()),
     # url(r'^carsApi/(?P<pk>[0-9]+)/$', views.carsDetail.as_view())
     #url(r'^autocomplete/$',carAutocomplete.as_view(), name='autocomplete'),
