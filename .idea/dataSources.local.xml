@@ -16,7 +16,7 @@
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <user-name>StephanLapdance</user-name>
-      <introspection-scope>tripslice_db:public,pg_catalog,stephanlapdance</introspection-scope>
+      <introspection-scope>tripslice_db:pg_catalog,public,stephanlapdance</introspection-scope>
       <resolve-scope>tripslice_db:public,stephanlapdance</resolve-scope>
     </data-source>
   </component>
