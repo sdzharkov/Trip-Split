@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'crispy_forms',
+    'corsheaders',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -53,6 +54,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'tripSlice.urls'
@@ -140,10 +143,16 @@ STATICFILES_FINDERS = (
 )
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    # 'DEFAULT_RENDERER_CLASSES': ('rest_framework_jsonp.renderers.JSONPRenderer',),
 }
 
 #Authentication Information
 LOGIN_REDIRECT_URL = '/tripapp/home/'
 
 LOGIN_URL='/login/'
+
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8080',
+)
