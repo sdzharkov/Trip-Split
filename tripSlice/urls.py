@@ -17,10 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
-#admin.autodiscover()
+admin.autodiscover()
 
 urlpatterns = [
     url(r'^tripapp/', include('tripapp.urls')),
+    url(r'^carAPI/', include('carAPI.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^login/', auth_views.login, {'template_name':'login.html'}, name='login'),
     url(r'^logout/',auth_views.logout_then_login, name='logout'),
