@@ -7,6 +7,7 @@ from . import views
 
 urlpatterns = [
     url(r'^cars/$', views.carsList.as_view()),
+    url(r'^gas/$', views.gasList.as_view()),
 ]
 
 

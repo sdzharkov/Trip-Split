@@ -83,7 +83,8 @@ WSGI_APPLICATION = 'tripSlice.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'tripslice_db',
         'USER': 'StephanLapdance',
         'PASSWORD': '',

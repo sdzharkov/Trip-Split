@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponseRedirect, Http404, HttpResponse
+from django.http import HttpResponseRedirect, Http404, HttpResponse, JsonResponse
 from django.core import serializers
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -19,6 +19,7 @@ from dal import autocomplete
 from django import forms
 from django.views.generic.edit import FormView
 from django.views import View, generic
+from bs4 import BeautifulSoup
 
 
 class carFilter(filters.FilterSet):
@@ -46,6 +47,20 @@ class carsList(generics.ListAPIView):
         serializer = carSerializer(car_filter, many=True)
         return Response(serializer.data)
 
+
+class gasList(generics.ListAPIView):
+    def get(self, request,format=None):
+        r = requests.get("https://www.gasbuddy.com/USA")
+        soup = BeautifulSoup(r.content, "html.parser")
+        links = soup.find_all("div", "col-sm-6 col-xs-6 siteName")
+        tests = soup.find_all("div", "col-sm-2 col-xs-3 text-right")
+        newDict = {}
+        for i in range(len(links)):
+            link = links[i]
+            test = tests[i]
+            newDict[str(link.contents[0].strip())] = str(test.contents[0].strip())
+
+        return JsonResponse(newDict)
 # class DefaultsMixin(object):
 #     """Default settings for view authentication, permissions,
 #     filtering and pagination."""
