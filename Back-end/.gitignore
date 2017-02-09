@@ -1,0 +1,11 @@
+*.pyc
+__pycache__
+db.sqlite3
+.DS_Store
+*~
+/tripapp/migrations*
+/bin/
+/include/
+/lib/*
+/static/
+tripslice_db
