@@ -5,14 +5,42 @@ A web application designed to help plan and assist road trip planners. The idea 
 
 This repository is currently running as a RESTful API for the VueJSCarApp repository. The project has taken on a more client-side approach while utilizing Django Rest Framework. 
 
+## To Run the Front End
+``` bash
+cd Front-end
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+```
+
+## To Run the Back End
+``` bash
+# Set up your Virtual Environment
+cd Back-end
+virtualenv -p python3 .
+Source bin/activate
+pip install -r requirements.txt
+
+# Set up Django
+python3 manage.py migrate
+python3 manage.py loaddata fixtures/data.json
+
+# build for production with minification
+python3 manage.py runserver
+```
+## Current Setup
+Front: Vue.JS, Webpack
+Back: Django, Django-rest-framework
+Database: Sqlite (Don't need Postgres Anymore)
+
 ## Current UI Design 
 ![](/static/ui/slide0.png)
 ![](/static/ui/Slide1.png)
 ![](/static/ui/slide2.png)
 ![](/static/ui/slide3.png)
-
-## Current Setup
-
-Runs on Python 3.5.1 and Django 1.10
-Database: PostgreSQL
 

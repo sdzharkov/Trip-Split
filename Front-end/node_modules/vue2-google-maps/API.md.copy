@@ -1,0 +1,331 @@
+# vue2-google-maps
+
+## Table of Contents
+
+* [Getting Started (with CDN)](#getting-started-cdn)
+* [Getting Started (with NPM)](#getting-started-npm)
+
+
+## <a name="getting-started-cdn"></a> Getting Started (with CDN)
+
+TODO (this package has not yet been published to a CDN).
+
+## <a name="getting-started-npm"></a> Getting Started (with NPM)
+
+Install your package via NPM:
+
+```sh
+$ npm install vue2-google-maps
+```
+
+Import the components you need:
+
+```js
+const {load, Marker, Map, Cluster, InfoWindow, Polyline, Rectangle,
+  Circle, Polygon, PlaceInput} = require('vue-google-maps');
+
+Vue.component('gmapMap', Map)
+Vue.component('gmapMarker', Marker)
+Vue.component('gmapInfoWindow', InfoWindow)
+// etc.
+```
+
+Set your API key:
+```js
+// index.js
+// More comprehensive syntax (preferred)
+load({
+  key: 'AIzaSyBzlLYISGjL_ovJwAehh6ydhB56fCCpPQw',
+  v: '3.24',
+  libraries: 'places'
+});
+// Traditional, simple syntax
+load('AIzaSyBzlLYISGjL_ovJwAehh6ydhB56fCCpPQw', '3.24', ['places']);
+```
+
+Write your Vue component
+```html
+<style>
+  .map-container {
+    width: 500px;
+    height: 300px;
+  }
+</style>
+<div id="app">
+  <div class="map-container">
+    <gmap-map :center="{lat:1.38, lng:103.8}" :zoom="12">
+      <gmap-marker :position="{lat:1.38, lng:103.8}">
+      </gmap-marker>
+      <gmap-info-window :position="{lat:1.38, lng:103.8}">
+        Hello world!
+      </gmap-info-window>
+    </gmap-map>
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#app'
+})
+</script>
+```
+
+## Classes
+
+Properties described here have a corresponding
+`g-property_changed` event if they are marked with &dagger;.
+
+They correspond to two-way properties in `vue-google-maps`, but allows you
+two work around the lack of two-way bindings in Vue 2.
+
+### `load(apiKey: string, version: string, libraries: string[]) : void`
+### `load(options: {[key: string]: [string]}) : void`
+
+Sets the API key etc. for the Google Maps JS API.
+If you need other parameters (e.g. for Google Maps Premium) then
+use the second syntax to set the `client` property.
+In the second syntax, options sets the query string for the JS API.
+
+### `loaded() : Promise`
+
+Promise resolved once the Google Maps API is loaded.
+
+### `Map` class (mixes in `DeferredReadyMixin`)
+
+`deferredReady` is called once `mapObject` has been initialized.
+
+#### Fields
+##### `mapObject : google.maps.Map`
+The Google Maps instance. Example usage:
+```js
+google.maps.event.trigger(this.$refs.map.mapObject, 'resize')
+```
+##### `mapCreated` : Promise<google.maps.Map>`
+Promise resolved when the map has been created
+
+#### Methods
+##### `panBy()`
+##### `panTo()`
+##### `panToBounds()`
+##### `fitBounds()`
+
+#### Properties
+##### `center : {lat: number, lng: number} | google.maps.LatLng`&dagger;
+##### `zoom : number`&dagger;
+Map's ***initial*** zoom and centre. If you need to change the
+centre of the map after setting it initially, you need to call
+`setCenter()` on the map object. (If doesn't seem like
+the correct behaviour, please file an issue.)
+##### `mapTypeId`&dagger;
+##### `options`
+
+#### Events
+##### `click`
+##### `dblclick`
+##### `drag`
+##### `dragend`
+##### `dragstart`
+##### `idle`
+##### `mousemove`
+##### `mouseout`
+##### `mouseover`
+##### `resize`
+##### `rightclick`
+##### `tilesloaded`
+
+### `Marker` class (mixes in `MapElementMixin`)
+#### Fields
+##### `$clusterAncestor : void | Vue`
+The first `Cluster` instance (going up the hierarchy chain)
+among this component's ancestors.
+This marker will be clustered by this clusterer.
+
+##### `$clusterObject : void | MarkerClusterer`
+The clusterer this marker is part of, or `null` if
+the marker is not part of a clusterer.
+
+Set in `deferredReady`.
+
+##### `$clusterObjectPromise : Promise<void | MarkerClusterer>`
+
+#### Properties
+##### `animation : number`
+##### `attribution : object`
+##### `clickable : boolean`
+##### `cursor : string`
+##### `draggable : boolean`
+##### `icon : object`
+##### `label : string`
+##### `opacity : number`
+##### `place : object`
+##### `position : {lat: number, lng: number} | google.maps.LatLng`
+##### `shape : object`
+##### `title : string`
+##### `zIndex : number`
+
+#### Events
+##### `click`
+##### `rightclick`
+##### `dblclick`
+##### `drag`
+##### `dragstart`
+##### `dragend`
+##### `mouseup`
+##### `mousedown`
+##### `mouseover`
+##### `mouseout`
+
+### `Cluster` class (mixes in `MapElementMixin`)
+Place `Marker` objects within `<gmap-cluster></gmap-cluster>`
+in order to use marker clustering.
+
+#### Properties
+##### `maxZoom : number`
+##### `calculator : function`
+##### `gridSize : number`
+##### `styles : object[]`
+
+### `Cluster` class (mixes in `MapElementMixin`)
+#### Properties
+##### `maxZoom : number`
+##### `calculator : function`
+##### `gridSize : number`
+##### `styles : object[]`
+
+### `InfoWindow` class (mixes in `MapElementMixin`)
+Example:
+```js
+<gmap-info-window>Hello world!</gmap-info-window>
+```
+#### Properties
+##### `options : object`
+##### `opened : object`
+##### `content : string`
+Alternative to setting the contents within the tag.
+##### `position : {lat: number, lng: number} | google.maps.LatLng`
+##### `zIndex : number`
+#### Events
+##### `domready`
+##### `closeclick`
+##### `content_changed`
+
+
+### `Polyline` class (mixes in `MapElementMixin`)
+##### `$polylineObject : google.maps.Polyline`
+
+#### Properties
+##### `draggable : boolean`
+##### `editable : boolean`
+##### `options : object`
+##### `path : ({lat: number, lng: number} | google.maps.LatLng)[]`&dagger;
+##### `deepWatch : boolean = false`
+Whether to perform a deep watch on the `path` property.
+Set to `false` to improve performance.
+
+#### Events
+##### `click`
+##### `dblclick`
+##### `drag`
+##### `dragend`
+##### `dragstart`
+##### `mousedown`
+##### `mousemove`
+##### `mouseout`
+##### `mouseover`
+##### `mouseup`
+##### `rightclick`
+
+### `Polygon` class (mixes in `MapElementMixin`)
+#### Fields
+##### `$polygonObject : google.maps.Polygon`
+#### Properties
+##### `draggable : boolean`
+##### `editable : boolean`
+##### `options : object`
+##### `path : ({lat: number, lng: number} | google.maps.LatLng)[]`&dagger;
+##### `paths : ({lat: number, lng: number} | google.maps.LatLng)[][]`&dagger;
+##### `deepWatch : boolean = false`
+Whether to perform a deep watch on the `path` property.
+Set to `false` to improve performance.
+
+#### Events
+##### `click`
+##### `dblclick`
+##### `drag`
+##### `dragend`
+##### `dragstart`
+##### `mousedown`
+##### `mousemove`
+##### `mouseout`
+##### `mouseover`
+##### `mouseup`
+##### `rightclick`
+
+### `Circle` class (mixes in `MapElementMixin`)
+#### Fields
+##### `$circleObject : google.maps.Circle`
+
+#### Properties
+##### `center : {lat: number, lng: number} | google.maps.LatLng`&dagger;
+##### `radius : number`&dagger;
+##### `draggable : boolean`
+##### `editable : boolean`
+##### `options : object`
+
+#### Events
+##### `bounds_changed`
+##### `click`
+##### `dblclick`
+##### `drag`
+##### `dragend`
+##### `dragstart`
+##### `mousedown`
+##### `mousemove`
+##### `mouseout`
+##### `mouseover`
+##### `mouseup`
+##### `rightclick`
+
+
+### `Rectangle` class (mixes in `MapElementMixin`)
+#### Fields
+##### `$rectangleObject : google.maps.Rectangle`
+
+#### Properties
+##### `bounds : {north: number, east: number, south: number, west: number} | google.maps.LatLngBounds`&dagger;
+##### `draggable : boolean`
+##### `editable : boolean`
+##### `options : object`
+
+#### Events
+##### `click`
+##### `dblclick`
+##### `drag`
+##### `dragend`
+##### `dragstart`
+##### `mousedown`
+##### `mousemove`
+##### `mouseout`
+##### `mouseover`
+##### `mouseup`
+##### `rightclick`
+
+
+### `PlaceInput` class (mixes in `MapElementMixin`)
+#### Fields
+##### `autoCompleter : google.maps.Autocomplete`
+
+#### Properties
+##### `bounds : object`
+##### `defaultPlace : string`
+##### `componentRestrictions : object`
+##### `placeholder : string`
+##### `types : string[]`
+##### `className : string`
+Sets the class on the `<input>` element, but we call it
+`className` because `class` is disallowed by Vue 2.
+##### `label : string`
+##### `selectFirstOnEnter : boolean`
+Simulates a 'down arrow' keypress on hitting 'return' when no pac suggestion is selected, and then triggers the original listener.
+
+#### Events
+##### `place_changed`

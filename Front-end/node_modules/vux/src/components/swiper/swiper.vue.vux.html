@@ -1,0 +1,17 @@
+
+<div class="vux-slider">
+  <div class="vux-swiper" :style="{height: xheight}">
+    <slot></slot>
+    <div class="vux-swiper-item" v-for="(item, index) in list" @click="clickListItem(item)" :data-index="index">
+      <a href="javascript:">
+        <div class="vux-img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
+        <p class="vux-swiper-desc" v-if="showDescMask">{{item.title}}</p>
+      </a>
+    </div>
+  </div>
+  <div :class="[dotsClass, 'vux-indicator', 'vux-indicator-' + dotsPosition]" v-show="showDots">
+    <a href="javascript:" v-for="key in length">
+      <i class="vux-icon-dot" :class="{'active': key - 1 === current}"></i>
+    </a>
+  </div>
+</div>

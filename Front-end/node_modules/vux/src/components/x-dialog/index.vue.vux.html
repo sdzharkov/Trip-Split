@@ -1,0 +1,12 @@
+
+<div class="weui_dialog_alert fix_ios_fixed" @touchmove="onTouchMove" v-show="currentValue">
+  <transition name="vux-mask">
+    <div class="weui_mask" @click="hideOnBlur && (currentValue = false)" v-show="currentValue"></div>
+  </transition>
+  <input style="display:none" v-model="currentValue">
+  <transition name="vux-dialog">
+    <div class="weui_dialog" v-show="currentValue" >
+      <slot></slot>
+    </div>
+  </transition>
+</div>
