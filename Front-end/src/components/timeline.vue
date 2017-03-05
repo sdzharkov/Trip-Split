@@ -4,7 +4,7 @@
     <li class = "li" v-for="(entry,index) in values" v-bind:class="{ complete: bool[index] }">
       <div class="timestamp">
         <span class="author">{{ entry }}</span>
-        <span class="date"> {{ date[index] }}<span>
+        <span class="date"> {{ date[index] }}</span>
       </div>
        <div class="status" v-on:click="changeCurView(index)">      
           <h4 v-if="index === 0"> {{ returnVehicle }} </h4>
