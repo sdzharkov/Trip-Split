@@ -32,6 +32,7 @@
 import state1 from './components/state1'
 import state2 from './components/state2'
 import state3 from './components/state3'
+import state4 from './components/state4'
 import timeline from './components/timeline'
 import { Row, Col } from 'element-ui'
 
@@ -55,12 +56,16 @@ export default {
       components: { state1 }
     },
     'state-2': {
-      template: '<state2>',
+      template: '<state2/>',
       components: { state2 }
     },
     'state-3': {
-      template: '<state3>',
+      template: '<state3/>',
       components: { state3 }
+    },
+    'state-4': {
+      template: '<state4/>',
+      components: { state4 }
     }
   },
   methods: {
@@ -86,6 +91,8 @@ export default {
 <style>
 .mainRow {
   display: flex;
+  width: 100%;
+  height: 100%;
 }
 .navigation.navigation-prev {
   left: 0;
@@ -151,7 +158,7 @@ a {
   color: #2c3e50;
   margin-top: 60px;
   width: 100%;
-  height: 100%;
+  height: 80%;
   .Center-Container.is-Flexbox {
     display: -webkit-box;
     display: -moz-box;
@@ -178,5 +185,7 @@ a {
 }
 .Center-Block {
   display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 </style>

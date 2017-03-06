@@ -2,14 +2,16 @@
   <div id="map_section">
     <UIRow :gutter="20">
       <UIColumn :span="10">
+        <div class= "ui_inputs">
           <UIInput placeholder="Please input" class='form-control' v-model='data1'></UIInput>
           <UIInput placeholder="Enter destinations in between:" v-model='mid' @keyup.enter.native='submit_mid'>
                 <UIButton slot="append" icon="search" v-on:click='submit_mid'></UIButton>
           </UIInput>
+          </div>
           <UIColumn>
             <div id="mid-list" v-for="(city,index) in locations">
               <div class="legCity">{{ city }}</div>
-              <button class="destroy" @click="remove_mid(index)"></button>
+              <i class="fa fa-minus-square" aria-hidden="true" @click="remove_mid(index)"></i>
             </div>      
           </UIColumn>   
           <UIInput placeholder='End Destination:' class='form-control' v-model='data2'>
@@ -131,9 +133,13 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   #mid-list {
     display: flex;
+    padding: 5px;
+    .fa {
+      padding-left: 10px;
+    }
   }
 
   .leg-city {
@@ -180,7 +186,6 @@
   }
   #directions-panel {
     margin-top: 10px;
-    background-color: #FFEE77;
     padding: 10px;
   }
   #map_section {

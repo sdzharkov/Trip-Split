@@ -78,12 +78,12 @@ export default {
 }
 </script>
 
-<style>
-  <style scoped>
+<style scoped>
   table {
     border: 2px solid #42b983;
     border-radius: 3px;
     background-color: #fff;
+    display: inline-block;
   }
 
   th {

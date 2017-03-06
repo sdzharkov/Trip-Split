@@ -1,8 +1,10 @@
 <template>
   <div class='state1'>
-    <UIInput type='text' class='form-control' placeholder='Enter Year:' v-model='car_year'></UIInput>
-    <UIInput type='text' class='form-control' placeholder='Enter Make:' v-model='car_make'></UIInput>
-    <UIInput type='text' class='form-control' placeholder='Enter Model:' v-model='car_model'></UIInput>
+    <div class="inputs">
+      <UIInput type='text' class='form-control' placeholder='Enter Year:' v-model='car_year'></UIInput>
+      <UIInput type='text' class='form-control' placeholder='Enter Make:' v-model='car_make'></UIInput>
+      <UIInput type='text' class='form-control' placeholder='Enter Model:' v-model='car_model'></UIInput>
+    </div>
     <demo-grid
       :data="cars"
       :columns="gridColumns"
@@ -76,6 +78,11 @@ export default {
 .el-input {
   width: 30%;
 }
+
+.inputs{
+  padding-bottom: 15px;
+}
+
 /*h1, h2 {
   font-weight: normal;
 }

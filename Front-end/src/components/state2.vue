@@ -1,7 +1,5 @@
 <template>
   <div class="state2">
-<!--     <UIInput placeholder="Please input" class='form-control' size='small' v-model='src'></UIInput>
-    <UIInput type='text' class='form-control' placeholder='End Destination:' size='small' v-model='dest'></UIInput> -->
     <maps></maps>
   </div>
 </template>
