@@ -28,37 +28,27 @@ export default {
       curDest: 'Destination'
     }
   },
-  watch: {
-    curCar: function () {
-      if (this.curCar != 'Your Car'){
-        this.checkList(0)
-      }
-    },
-    curDest: function () {
-      if (this.curDest != 'Destination'){
-        this.checkList(1)
-      }
-    }
-  },
   methods: {
     changeCurView: function (index) {
       this.$parent.changeView(index)
     },
-    checkList: function (i) {
-      if (this.bool[i] === true) {
-        this.$set(this.bool, parseInt(i), false)
-      } else {
-        this.$set(this.bool, parseInt(i), true)
-      }
+    checkList: function (i, j) {
+      this.$set(this.bool, parseInt(i), j)
     }
   },
   computed: {
     returnVehicle () {
       this.$set(this,'curCar',this.$store.getters.getCar)
+      if (this.curCar != 'Your Car'){
+        this.checkList(0, true)
+      }
       return this.$store.getters.getCar
     },
     returnTrip () {
       this.$set(this, 'curDest', this.$store.getters.getStartDest)
+      if (this.curDest != 'Destination'){
+        this.checkList(1, true)
+      }
       return this.$store.getters.getStartDest
     }
   }
@@ -71,6 +61,7 @@ export default {
   display: flex
   align-items: center
   justify-content: center
+  padding-left: 0px;
 .li
   transition: all 200ms ease-in
 
@@ -82,7 +73,6 @@ export default {
   align-items: center
   font-weight: 100
 .status
-  padding: 0px 40px
   display: flex
   justify-content: center
   border-top: 2px solid #D6DCE0

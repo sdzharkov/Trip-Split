@@ -1,6 +1,6 @@
 <template>
   <div class="state4">
-  hi
+    <h1> Your trip has been Split!</h1>
   </div>
 </template>
 <!-- Add 'scoped' attribute to limit CSS to this component only -->

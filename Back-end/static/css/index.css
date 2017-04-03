@@ -1,0 +1,222 @@
+
+@font-face{
+  font-family: madMax;
+  src: url(../fonts/MAXWELL_REGULAR.ttf);
+}
+
+@font-face{
+  font-family: Bernier;
+  src: url(../fonts/BERNIERShade-Regular.otf);
+}
+
+@font-face{
+  font-family: Bernier-reg;
+  src: url(../fonts/BERNIERRegular-Regular.otf);
+}
+
+@font-face{
+  font-family: Bukhari;
+  src: url(../fonts/BukhariScript-Regular.otf);
+}
+
+.svgCar{
+  width: 150px;
+  height: 150px;
+  stroke: white;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: center;
+}
+
+.flex-item {
+  background: #b8ab39;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  justify-content: space-around;
+}
+
+
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+.mdl-grid {
+  padding: 0!important;
+}
+
+.mdl-cell {
+  background: none;
+  padding: 30px 0;
+  text-align: center;
+  color: #000000;
+  font-weight: bold;
+}
+/*///////////////////////////////////Main Grid*/
+
+
+.main-text{
+  display: block;
+  justify-content: center;
+  text-align: left;
+}
+
+
+
+#centerText h2{
+  font-family: "Bukhari";
+  font-size: 50px;
+}
+
+#centerText h1{
+  font-family: "Bernier";
+  font-size: 130px;
+}
+
+#centerText {
+/*  background-color: #E5E3D7;
+*/  text-align: center;
+
+/*  opacity: .5;
+  filter: blur(5px);*/
+}
+
+#mainGrid{
+  font-family: "Bernier";
+}
+
+body{
+  background-color: #E5E3D7;
+}
+
+.material-icons{
+  color: black;
+
+}
+
+.mdl-layout {
+  background: url('../img/van.jpg') center / cover;
+  background-size: ;
+  background-color: #E5E3D7;
+}
+
+.mdl-layout__header-row .mdl-navigation__link{
+  font-size: 18px;
+  color: black;
+}
+
+.mdl-layout__header {
+  transition-property: max-height,box-shadow,background;
+  font-family: "Bernier-reg";
+  font-size:25px;
+}
+
+.mdl-layout-title{
+  font-family: "Bernier-reg";
+  font-size: 30px;
+  color:black;
+}
+
+.mdl-layout__header.is-casting-shadow {
+  // override initial background when scrolling
+  background: rgb(63,81,181);
+}
+
+.mdl-layout__header,
+.mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+
+
+/*//////////////         DEMO CARD CSS         //////////////////////////////////////*/
+
+.mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background: url('http://www.getmdl.io/assets/demos/welcome_card.jpg') center / cover;
+}
+
+.mdl-card__menu {
+    color: #fff;
+}
+
+.is-focused .mdl-textfield__input {
+    border-color: #fff;
+}
+
+.material-icons {
+  justify-content: flex-end !important;
+}
+
+
+<<<<<<< HEAD
+
+
+
+
+
+
+
+=======
+>>>>>>> master
+.demo-card-event.mdl-card {
+  width: 256px;
+  height: 256px;
+  background: #3E4EB8;
+}
+.demo-card-event > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.demo-card-event > .mdl-card__title {
+  align-items: flex-start;
+}
+.demo-card-event > .mdl-card__title > h4 {
+  margin-top: 0;
+}
+.demo-card-event > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.demo-card-event > .mdl-card__actions > .material-icons {
+  padding-right: 10px;
+}
+.demo-card-event > .mdl-card__title,
+.demo-card-event > .mdl-card__actions,
+.demo-card-event > .mdl-card__actions > .mdl-button {
+  color: #fff;
+}
+
+
+.demo-card-image.mdl-card {
+  width: 256px;
+  height: 256px;
+  background: url('../assets/demos/image_card.jpg') center / cover;
+}
+.demo-card-image > .mdl-card__actions {
+  height: 52px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.demo-card-image__filename {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}

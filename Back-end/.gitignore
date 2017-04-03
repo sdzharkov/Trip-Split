@@ -6,6 +6,5 @@ db.sqlite3
 /tripapp/migrations*
 /bin/
 /include/
-/lib/*
-/static/
+/lib/
 tripslice_db

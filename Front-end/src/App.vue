@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-<!--     <div class="Center-Container is-Inline">
- -->      
+  <div id="app">  
     <UIRow class="mainRow">
       <UIColumn :span="2">
         <a class="navigation navigation-prev " aria-label="Previous page: State" value="v-a" id="a" name="view" v-on:click="changeViewLeft">
@@ -24,8 +22,7 @@
         </a>
       </UIColumn>
     </UIRow>
-<!--     </div>
- -->  </div>
+  </div>
 </template>
 
 <script>

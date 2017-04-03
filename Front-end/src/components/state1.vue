@@ -34,10 +34,7 @@ export default {
       car_make: '',
       car_model: '',
       cars: [],
-      // gridColumns: ['car_year', 'car_make', 'car_model', 'car_cylinder', 'car_drive', 'fuel'],
-      gridColumns: ['car_model', 'car_cylinder', 'car_drive', 'fuel'],
-
-      searchQuery: ''
+      gridColumns: ['car_model', 'car_cylinder', 'car_drive', 'fuel']
     }
   },
   watch: {
@@ -73,10 +70,9 @@ export default {
 }
 </script>
 
-<!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped>
 .el-input {
-  width: 30%;
+  width: 25%;
 }
 
 .inputs{

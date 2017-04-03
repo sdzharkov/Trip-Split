@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 // import axios from 'axios'
 // import lodash from 'lodash'
-import api from '../../api/api.js'
+import api from './api.js'
 // var _ = lodash
 
 Vue.use(Vuex)
@@ -16,17 +16,6 @@ const store = new Vuex.Store({
     lists: {
       passengers: []
     }
-    // activeType: null,
-    // itemsPerPage: 20,
-    // items: {/* [id: number]: Item */},
-    // users: { [id: string]: User },
-    // lists: {
-    //   top: [/* number */],
-    //   new: [],
-    //   show: [],
-    //   ask: [],
-    //   job: []
-    // }
   },
 
     //   lookupnewCar: _.debounce(function () {
@@ -112,31 +101,8 @@ const store = new Vuex.Store({
       state.avg_gas = avgGas
     },
     SET_PASSENGERS: (state, { passengers }) => {
-      passengers.forEach(passenger => {
-        if (passenger) {
-          Vue.set(state.passengers, passenger)
-        }
-      })
+      state.passengers = passengers
     }
-    // SET_ACTIVE_TYPE: (state, { type }) => {
-    //   state.activeType = type
-    // },
-
-    // SET_LIST: (state, { type, ids }) => {
-    //   state.lists[type] = ids
-    // },
-
-    // SET_ITEMS: (state, { items }) => {
-    //   items.forEach(item => {
-    //     if (item) {
-    //       Vue.set(state.items, item.id, item)
-    //     }
-    //   })
-    // },
-
-    // SET_USER: (state, { user }) => {
-    //   Vue.set(state.users, user.id, user)
-    // }
   },
 
   getters: {
@@ -161,25 +127,6 @@ const store = new Vuex.Store({
         return to
       }
     }
-    // ids of the items that should be currently displayed based on
-    // current list type and current pagination
-    // activeIds (state) {
-    //   const { activeType, itemsPerPage, lists } = state
-    //   const page = Number(state.route.params.page) || 1
-    //   if (activeType) {
-    //     const start = (page - 1) * itemsPerPage
-    //     const end = page * itemsPerPage
-    //     return lists[activeType].slice(start, end)
-    //   } else {
-    //     return []
-    //   }
-    // },
-
-    // // items that should be currently displayed.
-    // // this Array may not be fully fetched.
-    // activeItems (state, getters) {
-    //   return getters.activeIds.map(id => state.items[id]).filter(_ => _)
-    // }
   }
 })
 
