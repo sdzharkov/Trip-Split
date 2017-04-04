@@ -3,7 +3,7 @@
     <UIRow :span ="20" id="myRow">
         <UIColumn :span="10" :offset="1" class="gasEnter">
           <div>How much did you pay for a gallon of gas?</div>
-          <UIInput type='text' v-model='gasPrice'></UIInput>
+          <UIInput type='text' placeholder="$3.00" v-model='gasPrice'></UIInput>
         </UIColumn>
         <UIColumn :span ="10" :offset="1" class="insert">
           <div>How many passengers?</div>
@@ -29,16 +29,16 @@ export default{
   },
   data () {
     return {
-      gasPrice: 2.75,
+      gasPrice: null,
       passengers: null
     }
   },
   watch: {
     gasPrice: function () {
-      this.commit('SET_GAS', this.gasPrice)
+      this.$store.commit('SET_GAS_PRICE', this.gasPrice)
     },
     passengers: function () {
-      this.commit('SET_PASSENGERS', this.passengers)
+      this.$store.commit('SET_PASSENGERS', this.passengers)
     }
   }
 }
@@ -51,7 +51,7 @@ export default{
   }
   #myRow{
     width: 100%;
-    display: inline-flex;
+    display: block;
   }
 
 </style>

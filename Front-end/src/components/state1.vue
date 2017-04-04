@@ -7,8 +7,7 @@
     </div>
     <demo-grid
       :data="cars"
-      :columns="gridColumns"
-      :filter-key="searchQuery">
+      :columns="gridColumns">
     </demo-grid>
   </div>
 </template>

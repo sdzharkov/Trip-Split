@@ -12,46 +12,26 @@ const store = new Vuex.Store({
     vehicle: '',
     route: null,
     src: '',
-    avgGas: null,
-    lists: {
-      passengers: []
-    }
+    gasPrice: 3.0,
+    passengers: 1,
+    finalCalc: null
   },
-
-    //   lookupnewCar: _.debounce(function () {
-    //   var inst = this
-    //   axios.get('http://localhost:8000/carAPI/cars/?car_make=' + this.car_make + '&car_year=' + this.car_year + '&car_model=' + this.car_model)
-    //     .then(function (response) {
-    //       console.log(response.data)
-    //       inst.$set(inst, 'cars', response.data)
-    //     })
-    //     .catch(function (error) {
-    //       if (error) {
-    //         console.log(error)
-    //       }
-    //     })
-    // }, 500)
-        // .then((response) => commit('SET_GAS', response))
   actions: {
-    // FETCH_GAS_DATA: ({ commit }) => {
-    //   _.debounce(function () {
-    //     axios.get('http://localhost:8000/carAPI/gas')
-    //       .then(function (response) {
-    //         console.log('response')
-    //         commit('SET_GAS', response)
-    //       })
-    //       .catch(function (error) {
-    //         if (error) {
-    //           console.log(error)
-    //         }
-    //       })
-    //   }, 500)
-    // }
-
-    FETCH_GAS_DATA: ({ commit }) => {
+    FETCH_GAS_DATA: ({ commit, state }) => {
       return api.get('http://localhost:8000/carAPI/gas')
         .then((response) => commit('SET_GAS', response))
+    },
+    FETCH_FINAL_DATA: ({ commit, state }) => {
+      var distance = 0
+      for (var i = 0; i < state.route.legs.length; i++) {
+        distance += parseFloat(state.route.legs[i].distance.text.split(' ')[0])
+      }
+
+      var final = (distance * (1 / state.vehicle.car_comb_mpg) * state.gasPrice) / state.passengers
+
+      commit('SET_FINAL_VAL', final)
     }
+
     // // ensure data for rendering given list type
     // FETCH_LIST_DATA: ({ commit, dispatch, state }, { type }) => {
     //   commit('SET_ACTIVE_TYPE', { type })
@@ -97,11 +77,14 @@ const store = new Vuex.Store({
     SET_SRC: (state, src) => {
       state.src = src
     },
-    SET_AVG_GAS: (state, avgGas) => {
-      state.avg_gas = avgGas
+    SET_GAS_PRICE: (state, gasPrice) => {
+      state.gasPrice = gasPrice
     },
-    SET_PASSENGERS: (state, { passengers }) => {
+    SET_PASSENGERS: (state, passengers) => {
       state.passengers = passengers
+    },
+    SET_FINAL_VAL: (state, finalCalc) => {
+      state.finalCalc = finalCalc
     }
   },
 
@@ -123,9 +106,14 @@ const store = new Vuex.Store({
       if (state.route === null) {
         return 'Destination'
       } else {
-        var to = state.route.legs[0].start_address
-        return to
+        return state.route.legs[0].start_address
       }
+    },
+    getFinalValue: state => {
+      return state.finalCalc
+    },
+    getPassengers: state => {
+      return state.passengers
     }
   }
 })
