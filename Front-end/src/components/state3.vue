@@ -3,11 +3,13 @@
     <UIRow :span ="24" id="myRow">
         <UIColumn :span="10" :offset="1" class="input3" id="enterGas">
           <div>How much did you pay for a gallon of gas?</div>
-          <UIInput type='text' placeholder="$3.00" v-model='gasPrice'></UIInput>
+          <UIInput type='text' placeholder="3.00" v-model='gasPrice'>
+            <template slot="prepend">$</template>
+          </UIInput>
         </UIColumn>
         <UIColumn :span ="10" :offset="1" class="input3" id="enterPassenger">
           <div>How many passengers?</div>
-          <UIInput type='text' placeholder='0 passengers' v-model='passengers'></UIInput>
+          <UIInput type='text' placeholder='1 passenger' v-model='passengers'></UIInput>
         </UIColumn>
     </UIRow> 
   </div>

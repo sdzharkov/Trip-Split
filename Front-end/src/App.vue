@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import state0 from './components/state0'
 import state1 from './components/state1'
 import state2 from './components/state2'
 import state3 from './components/state3'
@@ -40,14 +41,18 @@ export default {
   name: 'app',
   data () {
     return {
-      view: 'state-1'
+      view: 'state-0'
     }
   },
   components: {
     UIRow,
     UIColumn,
-    state1,
+    state0,
     timeline,
+    'state-0': {
+      template: '<state0/>',
+      components: { state0 }
+    },
     'state-1': {
       template: '<state1/>',
       components: { state1 }
@@ -77,7 +82,7 @@ export default {
     },
     changeViewLeft: function () {
       var x = parseInt(this.view.slice(-1))
-      if (x > 1) {
+      if (x > 0) {
         this.view = 'state-' + (x - 1).toString()
       }
     }

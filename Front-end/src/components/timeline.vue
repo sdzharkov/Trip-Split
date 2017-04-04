@@ -75,7 +75,7 @@ export default {
   padding-left: 0px;
 .li
   transition: all 200ms ease-in
-  width: 15%
+  width: 18%
 
 .timestamp
   margin-bottom: 20px
