@@ -9,7 +9,6 @@
 
 <script>
 import { Row, Col, Input, Button } from 'element-ui'
-// import { stateGetters } from 'vuex'
 var UIRow = Row
 var UIColumn = Col
 var UIInput = Input
@@ -21,14 +20,13 @@ export default{
     UIInput,
     UIButton
   },
-  // data () {
-  //   return {
-  //     final: this.getFinalValue
-  //   }
-  // },
   computed: {
     stateGetter () {
-      return this.$store.getters.getFinalValue.toFixed(2)
+      var x = this.$store.getters.getFinalValue
+      if (x !== null) {
+        return this.$store.getters.getFinalValue.toFixed(2)
+      }
+      return null
     },
     passengerGetter () {
       return this.$store.getters.getPassengers

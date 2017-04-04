@@ -4,11 +4,11 @@
     <li class = "li" v-for="(entry,index) in values" v-bind:class="{ complete: bool[index] }">
       <div class="timestamp">
         <span class="author">{{ entry }}</span>
-        <span class="date"> {{ date[index] }}</span>
       </div>
        <div class="status" v-on:click="changeCurView(index)">      
-          <h4 v-if="index === 0"> {{ returnVehicle }} </h4>
-          <h4 v-else-if="index === 1"> {{ returnTrip }} </h4>
+        <h4 v-if="index === 0"> {{ returnVehicle }} </h4>
+        <h4 v-else-if="index === 1"> {{ returnTrip }} </h4>
+        <h4 v-else-if="index === 2"> {{ returnGas }} </h4>
         <h4 v-else> {{ last[index] }} </h4>
       </div>
     </li>
@@ -20,36 +20,47 @@
 export default {
   data () {
     return {
-      values: ['Select Car', 'Location', 'Gas', 'Split Trip'],
-      date: ['TBD', 'tbd', 'TBF', 'DFD'],
-      last: ['1', 'Destination', '3', '4'],
+      values: ['Car', 'Location', 'Gas', 'Trip'],
+      last: ['1', 'Destination', '3', 'Split'],
       bool: [false, false, false, false],
       curCar: 'Your Car',
       curDest: 'Destination'
     }
   },
   methods: {
-    changeCurView: function (index) {
-      this.$parent.changeView(index)
-    },
+    // changeCurView: function (index) {
+    //   this.$parent.changeView(index)
+    // },
     checkList: function (i, j) {
       this.$set(this.bool, parseInt(i), j)
     }
   },
   computed: {
     returnVehicle () {
-      this.$set(this,'curCar',this.$store.getters.getCar)
-      if (this.curCar != 'Your Car'){
+      var x = this.$store.getters.getCar
+      if (x != null){
         this.checkList(0, true)
+        return x
       }
-      return this.$store.getters.getCar
+      return 'Your Car'
     },
     returnTrip () {
-      this.$set(this, 'curDest', this.$store.getters.getStartDest)
-      if (this.curDest != 'Destination'){
+      var x = this.$store.getters.getEndDest
+      if (x != null){
         this.checkList(1, true)
+        return x.split(",")[0]
       }
-      return this.$store.getters.getStartDest
+      return 'Destination'
+    },
+    returnGas () {
+      var x = this.$store.getters.getGasPrice
+      if (x != null){
+        this.checkList(2, true)
+        return "$" + x
+      }
+      else{
+        return "$"
+      }
     }
   }
 }
@@ -64,6 +75,7 @@ export default {
   padding-left: 0px;
 .li
   transition: all 200ms ease-in
+  width: 15%
 
 .timestamp
   margin-bottom: 20px
@@ -100,6 +112,7 @@ export default {
       transition: all 200ms ease-in 
     h4
       color: #66DC71
+
 
 @media (min-device-width: 320px) and (max-device-width: 700px)
   .timeline

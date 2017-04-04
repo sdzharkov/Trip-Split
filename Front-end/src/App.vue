@@ -70,14 +70,14 @@ export default {
       this.view = 'state-' + (index + 1).toString()
     },
     changeViewRight: function () {
-      if (parseInt(this.view.slice(-1)) < 4) {
-        var x = parseInt(this.view.slice(-1))
+      var x = parseInt(this.view.slice(-1))
+      if (x < 4) {
         this.view = 'state-' + (x + 1).toString()
       }
     },
     changeViewLeft: function () {
-      if (parseInt(this.view.slice(-1)) > 1) {
-        var x = parseInt(this.view.slice(-1))
+      var x = parseInt(this.view.slice(-1))
+      if (x > 1) {
         this.view = 'state-' + (x - 1).toString()
       }
     }
