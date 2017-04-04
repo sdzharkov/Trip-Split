@@ -39,8 +39,6 @@ Back: Django, Django-rest-framework
 Database: Sqlite (Don't need Postgres Anymore)
 
 ## Current UI Design 
-![](/static/ui/slide0.png)
-![](/static/ui/Slide1.png)
-![](/static/ui/slide2.png)
-![](/static/ui/slide3.png)
+<img src="https://github.com/sdzharkov/Trip-Split/blob/master/ui/slide0.jpg" width="400px"> <img src="https://github.com/sdzharkov/Trip-Split/blob/master/ui/Slide1.jpg" width="400px"> <img src="https://github.com/sdzharkov/Trip-Split/blob/master/ui/slide2.jpg" width="400px"> <img src="https://github.com/sdzharkov/Trip-Split/blob/master/ui/slide3.jpg" width="400px">
+
 
