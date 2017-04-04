@@ -39,8 +39,8 @@ Back: Django, Django-rest-framework
 Database: Sqlite (Don't need Postgres Anymore)
 
 ## Current UI Design 
-![](/static/ui/slide0.png)
-![](/static/ui/Slide1.png)
-![](/static/ui/slide2.png)
-![](/static/ui/slide3.png)
+![](/ui/slide0.png)
+![](/ui/Slide1.png)
+![](/ui/slide2.png)
+![](/ui/slide3.png)
 
