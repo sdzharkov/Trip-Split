@@ -1,0 +1,7 @@
+.idea/*
+bin/*
+include/*
+lib/*
+.Python
+/__pycache__/*
+node_modules/*
