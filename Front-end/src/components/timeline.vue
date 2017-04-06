@@ -5,7 +5,7 @@
       <div class="timestamp">
         <span class="author">{{ entry }}</span>
       </div>
-       <div class="status" v-on:click="changeCurView(index)">      
+       <div class="status">      
         <h4 v-if="index === 0"> {{ returnVehicle }} </h4>
         <h4 v-else-if="index === 1"> {{ returnTrip }} </h4>
         <h4 v-else-if="index === 2"> {{ returnGas }} </h4>
@@ -22,15 +22,10 @@ export default {
     return {
       values: ['Car', 'Location', 'Gas', 'Trip'],
       last: ['1', 'Destination', '3', 'Split'],
-      bool: [false, false, false, false],
-      curCar: 'Your Car',
-      curDest: 'Destination'
+      bool: [false, false, false, false]
     }
   },
   methods: {
-    // changeCurView: function (index) {
-    //   this.$parent.changeView(index)
-    // },
     checkList: function (i, j) {
       this.$set(this.bool, parseInt(i), j)
     }
@@ -38,7 +33,7 @@ export default {
   computed: {
     returnVehicle () {
       var x = this.$store.getters.getCar
-      if (x != null){
+      if (x != null) {
         this.checkList(0, true)
         return x
       }
@@ -46,21 +41,19 @@ export default {
     },
     returnTrip () {
       var x = this.$store.getters.getEndDest
-      if (x != null){
+      if (x != null) {
         this.checkList(1, true)
-        return x.split(",")[0]
+        return x.split(',')[0]
       }
       return 'Destination'
     },
     returnGas () {
       var x = this.$store.getters.getGasPrice
-      if (x != null){
+      if (x != null) {
         this.checkList(2, true)
-        return "$" + x
+        return '$' + x
       }
-      else{
-        return "$"
-      }
+      return '$'
     }
   }
 }

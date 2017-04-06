@@ -59,7 +59,7 @@
         var directionsDisplay = new googleMaps.DirectionsRenderer()
         this.$set(this, 'directionsS', directionsService)
         this.$set(this, 'directionsD', directionsDisplay)
-        this.$store.dispatch('FETCH_GAS_DATA')
+        // this.$store.dispatch('FETCH_GAS_DATA')
 
         var map = new googleMaps.Map(document.getElementById('map'), {
           zoom: 6,

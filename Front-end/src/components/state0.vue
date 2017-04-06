@@ -25,7 +25,7 @@ export default{
 <style lang="scss" scoped>
 @font-face {
   font-family: Bernier;
-  src: url(../../static/fonts/BERNIERRegular-Regular.otf);
+  src: url(../assets/fonts/BERNIERRegular-Regular.otf);
 }
 
 .state0{
