@@ -53,7 +53,6 @@ export default {
       var inst = this
       axios.get('http://127.0.0.1:8000/carAPI/cars/?car_make=' + this.car_make + '&car_year=' + this.car_year + '&car_model=' + this.car_model)
         .then(function (response) {
-          console.log(response.data)
           inst.$set(inst, 'cars', response.data)
         })
         .catch(function (error) {

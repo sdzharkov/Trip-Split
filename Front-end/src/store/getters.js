@@ -1,5 +1,5 @@
 export const getCar = state => {
-  if (state.vehicle === '') {
+  if (state.vehicle === null) {
     return null
   }
   var s = ''

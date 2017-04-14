@@ -7,9 +7,9 @@ import * as mutations from './mutations'
 Vue.use(Vuex)
 
 const state = {
-  vehicle: '',
+  vehicle: null,
   route: null,
-  src: '',
+  src: null,
   gasPrice: null,
   passengers: 1,
   finalCalc: null
