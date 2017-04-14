@@ -1,24 +1,18 @@
+
 export const getCar = state => {
-  if (state.vehicle === null) {
-    return null
-  }
-  var s = ''
-  s += state.vehicle['car_make']
-  s += ' '
-  s += state.vehicle['car_model']
-  return s
+  return state.vehicle
 }
 
 export const getRoute = state => {
   return state.route
 }
 
-export const getStartDest = state => {
-  if (state.route === null) {
-    return 'Destination'
-  }
-  return state.route.legs[0].start_address
-}
+// export const getStartDest = state => {
+//   if (state.route === null) {
+//     return 'Destination'
+//   }
+//   return state.route.legs[0].start_address
+// }
 
 export const getEndDest = state => {
   if (state.route === null) {

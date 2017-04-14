@@ -66,16 +66,11 @@
           center: {lat: 37.7749, lng: -122.4194}
         })
         this.directionsD.setMap(map)
-        // console.log(googleMaps) // => Object { Animation: Object}
       }).catch((err) => {
         console.error(err)
       })
     },
     methods: {
-      setRoute: function (ITEM) {
-        console.log('here')
-        this.$store.commit('SET_ROUTE', ITEM)
-      },
       submit_mid: function () {
         this.locations.push(this.mid)
         this.mid = ''
@@ -122,7 +117,7 @@
               summaryPanel.innerHTML += route.legs[i].end_address + '<br>'
               summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>'
             }
-            return route
+            // return route
           } else {
             window.alert('Directions request failed due to ' + status)
             return -1
