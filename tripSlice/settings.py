@@ -155,10 +155,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # LOGIN_URL='/login/'
 
 
-# CORS_ORIGIN_WHITELIST = (
-#     'localhost:8000',
-#     'localhost:8080'
-# )
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8000/*',
+    'localhost:8080/*',
+    'thawing-stream-25672.herokuapp.com/*'
+)
 
 import dj_database_url
 db_from_env = dj_database_url.config()
