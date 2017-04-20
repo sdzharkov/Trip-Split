@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'tripSlice.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tripslice_db',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'car_db',
         'USER': 'StephanLapdance',
         'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     }
 }
 
@@ -160,6 +160,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #     'localhost:8080'
 # )
 
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+# import dj_database_url
+# DATABASES['default'] =  dj_database_url.config()
 
