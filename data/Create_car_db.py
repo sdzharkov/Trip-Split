@@ -2,7 +2,7 @@ import csv
 import json
 
 def main():
-    with open('vehicles.csv', 'r') as f:
+    with open('vehicles2.csv', 'r') as f:
       reader = csv.reader(f)
       your_list = list(reader)
     tempLine = []
@@ -74,18 +74,15 @@ def printFunc(line, count):
     print(tab,tab, '"model": "tripapp.Car",');
     print(tab, tab, '"pk": ', count, ",");
     print(tab, tab, '"fields": {');
-    print(tab*2, tab, "\"car_make\": ","\"",line[0],"\",")
-    print(tab*2, tab, "\"car_model\": ","\"",line[1],"\",")
-    print(tab*2, tab, "\"car_highway_mpg\": ",line[2],",")
-    print(tab*2, tab, "\"car_city_mpg\": ",line[3],",")
-    print(tab*2, tab, "\"car_comb_mpg\": ",line[4],",")
-    print(tab*2, tab, "\"car_cylinder\": ",line[5],",")
-    print(tab*2, tab, "\"car_drive\": ","\"",line[6],"\",")
-    print(tab*2, tab, "\"fuel\": ","\"",line[7],"\",")
-    #print(tab*2, tab, "\"car_year\": ",line[8])
-    print(tab*2, tab, "\"car_year\": ","\"",line[8],"\"")
-    #print(tab*2, tab, "\"car_make\": ","\"",line[0],"\",")
-
+    print(tab*2, tab, "\"car_make\":","\"",line[0].strip(),"\",")
+    print(tab*2, tab, "\"car_model\":","\"",line[1].strip(),"\",")
+    print(tab*2, tab, "\"car_highway_mpg\":",line[2].strip(),",")
+    print(tab*2, tab, "\"car_city_mpg\":",line[3].strip(),",")
+    print(tab*2, tab, "\"car_comb_mpg\":",line[4].strip(),",")
+    print(tab*2, tab, "\"car_cylinder\":",line[5].strip(),",")
+    print(tab*2, tab, "\"car_drive\":","\"",line[6].strip(),"\",")
+    print(tab*2, tab, "\"fuel\":","\"",line[7].strip(),"\",")
+    print(tab*2, tab, "\"car_year\":","\"",line[8].strip(),"\"")
     print(tab*2, "}")
     print(tab,"},")
 

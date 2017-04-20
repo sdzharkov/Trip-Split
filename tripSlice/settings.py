@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'psycopg2',
     'tripapp',
     'carAPI'
 ]
@@ -87,7 +88,7 @@ DATABASES = {
         'USER': 'StephanLapdance',
         'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
