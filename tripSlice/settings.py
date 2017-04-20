@@ -153,14 +153,21 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # LOGIN_REDIRECT_URL = '/tripapp/home/'
 
 # LOGIN_URL='/login/'
-
+CORS_ALLOW_HEADERS = (
+        'x-requested-with',
+        'content-type',
+        'accept',
+        'origin',
+        'authorization',
+        'x-csrftoken'
+)
 
 CORS_ORIGIN_WHITELIST = (
     'localhost:8000/*',
     'localhost:8080/*',
     'thawing-stream-25672.herokuapp.com/*'
 )
-ALLOWED_HOST = ['127.0.0.1', 'localhost', 'thawing-stream-25672.herokuapp.com']
+ALLOWED_HOST = ['127.0.0.1', 'localhost:8000', 'thawing-stream-25672.herokuapp.com']
 
 import dj_database_url
 db_from_env = dj_database_url.config()
