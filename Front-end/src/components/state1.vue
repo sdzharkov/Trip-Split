@@ -51,7 +51,7 @@ export default {
   methods: {
     lookupnewCar: _.debounce(function () {
       var inst = this
-      axios.get('https://thawing-stream-25672.herokuapp.com/carAPI/cars/?car_make=' + this.car_make + '&car_year=' + this.car_year + '&car_model=' + this.car_model)
+      axios.get('/carAPI/cars/?car_make=' + this.car_make + '&car_year=' + this.car_year + '&car_model=' + this.car_model)
         .then(function (response) {
           inst.$set(inst, 'cars', response.data)
         })
